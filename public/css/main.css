@@ -33,7 +33,7 @@ and (max-device-width : 480px) {
 
 .active_item
 {
-    background-color: #fff !important;
+    background-color: #dddddd !important;
 }
 
 .page_item:hover
