@@ -1,0 +1,174 @@
+<div class="box box-primary">
+    <div class="box-header with-border">
+        <h3 class="box-title">Список страниц</h3>
+    </div><!-- /.box-header -->
+    <div class="box-body">
+        <a href="#"   class="btn btn-success add_page_item"><span class="glyphicon glyphicon-plus-sign"></span> Добавить страницу</a>
+        <br><br>
+        <div class="table-responsive">
+            <table class="table no-margin" >
+                <thead>
+                <tr>
+                    <th style="text-align:center">ID</th>
+                    <th >Название</th>
+                     <th style="text-align:center">Действия</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                {{#each pages}}
+                    <tr>
+                        <td style="vertical-align: middle;text-align:center" class="page_id" >{{this.id}}</td>
+                        <td style="vertical-align: middle" class="page_name">{{this.name}}</td>
+                        <td style="vertical-align: middle;text-align:center">
+                            <span class="fa  fa-pencil page_edit" page_id="{{this.id}}" ></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                            <span class="fa  fa-trash-o page_del" page_id="{{this.id}}"></span>
+
+                        </td>
+
+                    </tr>
+
+
+                {{/each}}
+
+                </tbody>
+            </table>
+        </div><!-- /.table-responsive -->
+    </div><!-- /.box-body -->
+</div>
+
+<div class="modal modal-default" id="page_content_edit_form">
+    <div class="modal-dialog modal-mega-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span></button>
+                <h4 class="modal-title">Редактирование страницы</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <fieldset>
+
+
+                        <!-- Text input-->
+                        <div class="form-group edit_link_page">
+                            <label class="col-md-2 control-label" for="edit_link_p_content_name">Название  страницы</label>
+                            <div class="col-md-8">
+                                <input id="edit_link_p_content_name" name="edit_link_p_content_name" type="text"  class="form-control input-md">
+
+                            </div>
+                        </div>
+
+
+
+                        <ul class="nav nav-tabs  inner_page">
+                            <li class="active"><a data-toggle="tab" href="#edit_page_tab_ru">Русский</a></li>
+                            <li><a data-toggle="tab" href="#edit_page_tab_en">Английский</a></li>
+                            <li><a data-toggle="tab" href="#edit_page_tab_ukr">Украинский</a></li>
+                        </ul>
+
+
+                        <div class="tab-content inner_page">
+                            <div id="edit_page_tab_ru" class="tab-pane fade in active">
+                                <!-- Text input-->
+
+
+                                <div id="edit_page_ru"></div>
+
+                            </div>
+                            <div id="edit_page_tab_en" class="tab-pane fade">
+                                <!-- Text input-->
+
+                                <div id="edit_page_en"></div>
+                            </div>
+                            <div id="edit_page_tab_ukr" class="tab-pane fade">
+                                <!-- Text input-->
+
+                                <div id="edit_page_ukr"></div>
+
+                            </div>
+                        </div>
+
+
+                    </fieldset>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger text-center. pull-left" data-dismiss="modal" >Закрыть</button>
+                <button type="button" class="btn btn-success text-center." id="btn_modal_content_page_edit">Сохранить</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+
+
+
+<div class="modal modal-default" id="page_item_add_form">
+    <div class="modal-dialog modal-mega-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span></button>
+                <h4 class="modal-title">Добавления страницы</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <fieldset>
+
+
+                        <div class="form-group">
+                            <!-- Text input-->
+                            <div class="form-group edit_link_page">
+                                <label class="col-md-2 control-label" for="add_page_name">Название  страницы</label>
+                                <div class="col-md-8">
+                                    <input id="add_page_name" name="add_page_name" type="text"  class="form-control input-md">
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <ul class="nav nav-tabs  inner_page add_page_tab">
+                            <li class="active"><a data-toggle="tab" href="#add_page_tab_ru">Русский</a></li>
+                            <li><a data-toggle="tab" href="#add_page_tab_en">Английский</a></li>
+                            <li><a data-toggle="tab" href="#add_page_tab_ukr">Украинский</a></li>
+                        </ul>
+
+
+                        <div class="tab-content inner_page add_page_tab">
+                            <div id="add_page_tab_ru" class="tab-pane fade in active">
+                                <!-- Text input-->
+
+
+                                <div id="add_page_ru"></div>
+
+                            </div>
+                            <div id="add_page_tab_en" class="tab-pane fade">
+                                <!-- Text input-->
+
+                                <div id="add_page_en"></div>
+                            </div>
+                            <div id="add_page_tab_ukr" class="tab-pane fade">
+                                <!-- Text input-->
+
+                                <div id="add_page_ukr"></div>
+
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default text-center." data-dismiss="modal" >Закрыть</button>
+                <button type="button" class="btn btn-success text-center." id="btn_modal_page_add">Сохранить</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

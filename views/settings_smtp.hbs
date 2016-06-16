@@ -1,0 +1,104 @@
+<div class="box box-primary">
+    <div class="box-body box-profile">
+          <form class="form-horizontal">
+                <fieldset>
+
+                  <!-- Form Name -->
+                <legend>Редактирование настроек SMTP</legend>
+
+
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="smtp_server">Server:</label>
+                            <div class="col-md-4">
+                                <input id="smtp_server" value="{{smtp_server}}" name="smtp_server" type="text" placeholder="IP or domain" class="form-control input-md" required="">
+
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="smtp_port">Port:</label>
+                            <div class="col-md-4">
+                                <input id="smtp_port" value="{{smtp_port}}" name="smtp_port" type="text" placeholder="port" class="form-control input-md" required="">
+
+                            </div>
+                        </div>
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="sender_address">Sender address:</label>
+                            <div class="col-md-4">
+                                <input id="sender_address" value="{{sender_address}}" name="sender_address" type="text" placeholder="Sender" class="form-control input-md" required="">
+
+                            </div>
+                        </div>
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="textinput">Username:</label>
+                            <div class="col-md-4">
+                                <input id="smtp_user" value="{{smtp_user}}" name="smtp_user" type="text" placeholder="username" class="form-control input-md" required="">
+
+                            </div>
+                        </div>
+
+                        <!-- Password input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="smtp_password">Password</label>
+                            <div class="col-md-4">
+
+                                <div class="input-group">
+                                    <input id="smtp_password" value="{{smtp_password}}" name="smtp_password" required="" class="form-control"
+                                           type="password" placeholder="password">
+                                              <span class="input-group-addon"> <input id="show_pass" type="checkbox"> Show </span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                </fieldset>
+          </form>
+                        <!-- Button -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label"></label>
+                            <div class="col-md-4">
+                                <button  class="btn btn-success pull-right btn_smtp_save "><span class="fa fa-floppy-o"></span> Сохранить</button>
+                            </div>
+                        </div>
+
+
+
+    </div>
+    <!-- /.box-body -->
+</div>
+<div class="box box-primary">
+    <div class="box-body box-profile">
+
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+        <!-- Text input-->
+        <div class="form-group">
+            <label class=" control-label" for="smtp_test">Отправить тестовое письмо</label>
+            <div >
+                <input id="smtp_test" name="smtp_test" type="text" placeholder="Email" class="form-control input-md">
+
+            </div>
+        </div>
+
+        <!-- Button -->
+        <div class="form-group">
+            <div>
+                <button  class="btn btn-success pull-right smtp_test_send_btn " ><span class="fa fa-envelope-o"></span> Отправить</button>
+            </div>
+        </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+

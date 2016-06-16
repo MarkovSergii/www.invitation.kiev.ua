@@ -1,0 +1,42 @@
+.modal-mega
+{
+    width: 1400px!important;
+}
+
+.modal-mega-sm
+{
+    width: 800px!important;
+}
+
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 480px) {
+    .reg_img {display: none}
+}
+
+@media (max-width: @screen-xs-min) {
+    .registration_modal { width: @modal-sm; }
+
+
+}
+
+.error
+{
+    color: red;
+}
+
+.form-horizontal .form-group
+{
+     margin-right: 0px;!important;
+     margin-left: 0px;!important;
+}
+
+.active_item
+{
+    background-color: #dddddd !important;
+}
+
+.page_item:hover
+{
+    background-color: #dddddd !important;
+}

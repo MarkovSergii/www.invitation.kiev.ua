@@ -1,0 +1,169 @@
+<div class="box">
+    <div class="box-header with-border">
+        <h3 class="box-title">Список файлов</h3>
+    </div><!-- /.box-header -->
+    <div class="box-body box_hbs">
+
+        <button class="btn btn-success add_file" style="margin-bottom: 15px"> Добавить новый файл</button>
+        <div class="box box-info collapsed-box">
+        <div class="box-header with-border">
+            <h3 data-widget="collapse" class="box-title file_type_title">Handlebars Template</h3>
+
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                </button>
+            </div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+            <div class="table-responsive">
+                <table class="table no-margin">
+                    <thead>
+                    <tr>
+                        <th>Имя файла</th>
+                        <th>Действие</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{#each hbs}}
+                        <tr>
+                            <td width="60%"><span class="file" file_type = "hbs">{{this.name}}</span></td>
+                            <td >
+                                <span class="edit_file fa fa-pencil" file_type = "hbs" file_name="{{this.name}}"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <span class="del_file fa fa-trash-o" file_type = "hbs" file_name="{{this.name}}"></span>
+                            </td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.table-responsive -->
+        </div>
+        <!-- /.box-body -->
+        <!-- /.box-footer -->
+    </div>
+
+        <div class="box box-info collapsed-box box_js">
+            <div class="box-header with-border">
+                <h3 data-widget="collapse" class="box-title file_type_title">JavaScript files</h3>
+
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <div class="table-responsive">
+                    <table class="table no-margin">
+                        <thead>
+                        <tr>
+                            <th>Имя файла</th>
+                            <th>Действие</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {{#each js}}
+                            <tr>
+                                <td width="60%"><span class="file" file_type = "js">{{this.name}}</span></td>
+                                <td>
+                                    <span class="edit_file fa fa-pencil" file_type = "js" file_name="{{this.name}}"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <span class="del_file fa fa-trash-o" file_type = "js" file_name="{{this.name}}"></span>
+                                </td>
+                            </tr>
+                        {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.table-responsive -->
+            </div>
+            <!-- /.box-body -->
+            <!-- /.box-footer -->
+        </div>
+
+        <div class="box box-info collapsed-box box_css">
+            <div class="box-header with-border">
+                <h3 data-widget="collapse" class="box-title file_type_title ">CSS files</h3>
+
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <div class="table-responsive">
+                    <table class="table no-margin">
+                        <thead>
+                        <tr>
+                            <th>Имя файла</th>
+                            <th>Действие</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {{#each css}}
+                            <tr>
+                                <td width="60%"><span class="file" file_type = "css">{{this.name}}</span></td>
+                                <td >
+                                    <span class="edit_file fa fa-pencil" file_type = "css" file_name="{{this.name}}"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <span class="del_file fa fa-trash-o" file_type = "css" file_name="{{this.name}}"></span>
+                                </td>
+                            </tr>
+                        {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.table-responsive -->
+            </div>
+            <!-- /.box-body -->
+            <!-- /.box-footer -->
+        </div>
+</div>
+
+<div class="modal modal-default" id="edit_file_form" data-backdrop="static">
+    <div class="modal-dialog modal-mega-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close close1" aria-label="Close">
+                    <span aria-hidden="true">×</span></button>
+                <h4 class="modal-title">Управление содержимым</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <fieldset>
+
+
+                            <!-- Text input-->
+                            <div class="form-group file_name_group">
+                                <label class="col-md-2 control-label" for="file_name_edit">Имя файла</label>
+                                <div class="col-md-8 text-center">
+                                    <input id="file_name_edit" name="file_name_edit" type="text"  class="form-control input-md">
+
+                                </div>
+                            </div>
+
+
+                            <!-- Text input-->
+                            <div class="form-group editor_group">
+                                <div class="col-md-10" id="editor">
+
+
+                                </div>
+                            </div>
+
+
+
+                    </fieldset>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default text-center close1" >Закрыть</button>
+                <button type="button" class="btn btn-success text-center" id="btn_modal_file_save">Сохранить</button>
+                <button type="button" class="btn btn-success text-center" id="btn_modal_file_save_and_close">Сохранить и закрыть</button>
+                <button type="button" class="btn btn-danger text-center pull-left" id="btn_modal_file_delete">Удалить</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

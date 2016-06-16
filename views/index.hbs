@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+ <!--   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.min.js"></script> -->
+    <script src="/js/jquery.cookie.js"></script>
+    <script src="/js/translations.js"></script>
+    <script src="/js/client.js"></script>
+    <script src="/js/registration.js"></script>
+    <script src="/js/login.js"></script>
+    <script src="/js/jquery.bootstrap-dropdown-hover.min.js"></script>
+    <script src="/js/sweetalert.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/sweetalert.css">
+    <title></title>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <div class="bs-example">
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="#">KMKYA invitation</a>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+
+
+                                {{#each menu_items}}
+
+                                    {{#if this.subs}}
+                                        <li class="dropdown " >
+                                            <a href="{{this.link}}" class="dropdown-toggle page_item {{#IFactive this.isactive true}} active_item {{/IFactive}}" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{this.name}}<span class="caret"></span></a>
+                                            <ul class="dropdown-menu">
+                                                {{#each this.subs}}
+                                                    <li ><a class="page_item" href="{{this.link}}" >{{this.name}}</a></li>
+                                                {{/each}}
+
+                                            </ul>
+                                        </li>
+                                    {{else}}
+
+                                        <li > <a href="{{this.link}}" class="page_item {{#IFactive this.isactive true}} active_item {{/IFactive}}" > {{this.name}}</a></li>
+
+                                    {{/if}}
+
+                                {{/each}}
+
+                            </ul>
+
+                            <ul class="nav navbar-nav navbar-right">
+
+
+                                <li>
+                                    <a href="#">
+                                        <select id="lang" class="form-control">
+                                            {{#each lang}}
+                                                <option value=  "{{this.name}}"  >{{this.name}}</option>
+                                            {{/each}}
+                                        </select>
+                                    </a>
+
+                                </li>
+                                {{#if user}}
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user">&nbsp;</span>{{user.first_name}}&nbsp;{{user.last_name}} &nbsp;&nbsp;<strong class="caret"></strong></a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a href="/invit" class="get_ticket">Заказ пригласительного</a>
+                                            </li>
+                                            <li>
+                                                <a href="/user" class="user_detail">Редактирование личных данных</a>
+                                            </li>
+                                            {{#IFactive user.role 'admin'}}
+                                                <li class="divider">
+                                                </li>
+                                                <li>
+                                                    <a href="/admin" class="admin_page">Панель администратора</a>
+                                                </li>
+                                            {{/IFactive}}
+
+                                            <li class="divider">
+                                            </li>
+                                            <li>
+                                                <a class="logout" href="/logout">Выйти</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                {{else}}
+
+                                    <li>
+                                        <a data-toggle="modal" href="#auth_login_modal"  class = "login_page" ><span class="glyphicon glyphicon-user"></span> {{dictionary.login}}&nbsp;&nbsp;&nbsp;</a>
+                                    </li>
+                                {{/if}}
+
+                            </ul>
+                        </div><!-- /.navbar-collapse -->
+                    </div><!-- /.container-fluid -->
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div id = "content">
+        {{{content}}}
+    </div>
+</div>
+
+
+<div id="auth_login_modal" class="modal fade">
+    <div class="modal-dialog registration_modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3 class="modal-title" style="text-align: center;font-weight:bold">{{dictionary.greating}}</h3>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <fieldset>
+                        <!-- Text input-->
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12">
+                                <div style="text-align: center">
+                                    <h2>{{dictionary.enter}}</h2>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-10 col-md-offset-1">
+                                        <div style="text-align: center" class="form-group has-feedback">
+                                            <input  class="form-control" id="logininput" placeholder="{{dictionary.enter_placeholder_login}}">
+                                            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-10 col-md-offset-1">
+                                        <div style="text-align: center" class="form-group has-feedback">
+                                            <input type="password" class="form-control" id="passwordinput" placeholder="{{dictionary.enter_placeholder_password}}">
+                                            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 col-md-offset-3">
+                                        <button id="btn_login" type="button" class="btn btn-default btn-block btn-lg">{{dictionary.enter_button}}</button>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="col-md-6">
+                                <div style="text-align: center">
+                                    <h2>{{dictionary.reg}}</h2>
+                                </div>
+                                <div class="row hidden">
+                                    <div class="col-md-10 col-md-offset-1">
+                                        <div style="text-align: center" class="form-group has-feedback">
+                                            <input  class="form-control" id="logininput" placeholder="{{dictionary.enter_placeholder_login}}">
+                                            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row hidden">
+                                    <div class="col-md-10 col-md-offset-1">
+                                        <div style="text-align: center" class="form-group has-feedback">
+                                            <input type="password" class="form-control" id="passwordinput" placeholder="{{dictionary.enter_placeholder_password}}">
+                                            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="text-align: center"><img width="78" height="78" class="reg_img" src="http://iconizer.net/files/Pretty_Office_part_3/thumb/128/Add-Male-User.png"></div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-10 col-md-offset-1">
+                                        <a href="/registration"><button type="button" class="btn btn-success btn-block btn-lg btn-go_registration">{{dictionary.reg_button}}</button></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </fieldset>
+                </form>
+
+
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="forgot">{{dictionary.forgot}}</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="forgot_modal" class="modal fade">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3 class="modal-title" style="text-align: center;font-weight:bold">{{dictionary.forgot}}</h3>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <fieldset>
+                        <!-- Text input-->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div style="text-align: center">
+                                    <h2>{{dictionary.forgot_greetings}}</h2>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 col-md-offset-4">
+                                        <div style="text-align: center" class="form-group has-feedback">
+                                            <input  class="form-control" id="forgot_email" placeholder="Email">
+                                            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-md-2 col-md-offset-5">
+                                        <button id="btn_forgot" type="button" class="btn btn-default btn-block btn-lg">{{dictionary.forgot_button}}</button>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+
+                    </fieldset>
+                </form>
+
+
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
+
+

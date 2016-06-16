@@ -1,0 +1,48 @@
+thanks
+<script>
+    var linkto;
+</script>
+{{#if this.err}}
+    Bad link
+{{else}}
+
+    {{#IFactive this.is_verify '1'}}
+
+        cool go to redirect
+        <span>Вы будите перенаправлены через </span><span id="counter">5</span><span> секунд</span>
+        {{#if this.linkto}}
+            go to your exhibition
+            <script>
+                linkto = '/exhibition/'+{{this.linkto}};
+            </script>
+
+        {{else}}
+            go to exhibition list
+            <script>
+                linkto = '/exhibitions';
+            </script>
+        {{/if}}
+
+        <script>
+
+            var sek = 5;
+            var sp = document.getElementById('counter');
+            var timer = setInterval(function(){
+                sp.innerText = sek;
+                sek--;
+            },1000);
+
+            var timeout = setTimeout(function(){
+                window.location = linkto;
+            },6000);
+
+
+        </script>
+
+    {{/IFactive}}
+
+    {{#IFactive this.is_verify '0'}}
+        Bad link
+    {{/IFactive}}
+
+{{/if}}

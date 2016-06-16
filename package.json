@@ -1,0 +1,41 @@
+{
+  "name": "www.invitation.kiev.ua",
+  "version": "1.0.0",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "consolidate": "^0.14.1",
+    "cookie-parser": "^1.4.3",
+    "cookie-session": "^1.2.0",
+    "express": "^4.13.4",
+    "express-fileupload": "0.0.5",
+    "fs-readfile-promise": "^3.0.0",
+    "handlebars": "^4.0.5",
+    "md5": "^2.1.0",
+    "moment": "^2.13.0",
+    "mysql": "^2.10.2",
+    "nodemailer": "^2.4.2",
+    "nodemailer-smtp-transport": "^2.5.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "sequelize": "^3.23.3",
+    "serve-favicon": "^2.3.0",
+    "walk": "^2.3.9"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarkovSergii/www.invitation.kiev.ua.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MarkovSergii/www.invitation.kiev.ua/issues"
+  },
+  "homepage": "https://github.com/MarkovSergii/www.invitation.kiev.ua#readme",
+  "description": ""
+}

@@ -1,0 +1,34 @@
+<form hash = {{user}} class="form-horizontal">
+    <fieldset>
+
+        <!-- Form Name -->
+        <legend>Смена пароля</legend>
+
+        <!-- Password input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="input_password">Пароль</label>
+            <div class="col-md-4">
+                <input id="input_password" name="input_password" type="password" placeholder="Пароль" class="form-control input-md" required="">
+                <span id="password_span" class="error" hidden>Пароль должен быть более 6 знаков и содержать только буквы и цыфры</span>
+            </div>
+        </div>
+
+        <!-- Password input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="input_repassword">Повторите пароль</label>
+            <div class="col-md-4">
+                <input id="input_repassword" name="input_repassword" type="password" placeholder="Повторите пароль" class="form-control input-md" required="">
+                <span id="repassword_span" class="error" hidden>Пароли не совпадают</span>
+            </div>
+        </div>
+
+        <!-- Button -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="change_pass_btn"></label>
+            <div class="col-md-4">
+                <button id="change_pass_btn" type="button" name="change_pass_btn" class="btn btn-success btn-block">Сменить пароль</button>
+            </div>
+        </div>
+
+    </fieldset>
+</form>

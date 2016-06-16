@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Admin  | Invitation</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/dist/css/AdminLTE.min.css">
+      <!-- DataTables -->
+    <link rel="stylesheet" href="/plugins/datatables/dataTables.bootstrap.css">
+    <link rel="stylesheet" href="/plugins/daterangepicker/daterangepicker-bs3.css">
+    <link rel="stylesheet" href="/dist/css/skins/skin-blue.min.css">
+
+    <link rel="stylesheet" href="/css/sweetalert.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+      <link rel="stylesheet" href="/css/admin-main.css">
+
+  </head>
+  <!--
+  BODY TAG OPTIONS:
+  =================
+  Apply one or more of the following classes to get the
+  desired effect
+  |---------------------------------------------------------|
+  | SKINS         | skin-blue                               |
+  |               | skin-black                              |
+  |               | skin-purple                             |
+  |               | skin-yellow                             |
+  |               | skin-red                                |
+  |               | skin-green                              |
+  |---------------------------------------------------------|
+  |LAYOUT OPTIONS | fixed                                   |
+  |               | layout-boxed                            |
+  |               | layout-top-nav                          |
+  |               | sidebar-collapse                        |
+  |               | sidebar-mini                            |
+  |---------------------------------------------------------|
+  -->
+  <body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+
+      <!-- Main Header -->
+      <header class="main-header">
+
+        <!-- Logo -->
+        <a href="#" class="logo">
+          <!-- mini logo for sidebar mini 50x50 pixels -->
+          <span class="logo-mini" ><b>KYA</b></span>
+          <!-- logo for regular state and mobile devices -->
+          <span class="logo-lg"><b>Admin</b>Invitation</span>
+        </a>
+
+        <!-- Header Navbar -->
+        <nav class="navbar navbar-static-top" role="navigation">
+          <!-- Sidebar toggle button-->
+          <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">Toggle navigation</span>
+          </a>
+          <!-- Navbar Right Menu -->
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+              <!-- Messages: style can be found in dropdown.less-->
+        
+                
+                
+             
+             <!-- User Account Menu -->
+              <li class="dropdown user user-menu">
+                <!-- Menu Toggle Button -->
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <!-- The user image in the navbar-->
+                  <img src="/dist/img/user{{user.id}}.jpg" class="user-image" alt="User Image">
+                  <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                  <span class="hidden-xs">{{user.name}}</span>
+                </a>
+                <ul class="dropdown-menu" style="width :180px; !important;">
+                  <!-- The user image in the menu
+                  <li class="user-header">
+                    <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                    <p>
+                      Alexander Pierce - Web Developer
+                      <small>Member since Nov. 2012</small>
+                    </p>
+                  </li>
+                  <!-- Menu Body
+                  <li class="user-body">
+                    <div class="col-xs-4 text-center">
+                      <a href="#">Followers</a>
+                    </div>
+                    <div class="col-xs-4 text-center">
+                      <a href="#">Sales</a>
+                    </div>
+                    <div class="col-xs-4 text-center">
+                      <a href="#">Friends</a>
+                    </div>
+                  </li>
+                  <!-- Menu Footer-->
+                  <li class="user-footer">
+                    <div class="pull-left">
+                      <a href="#" user_id="{{user.id}}" class="btn btn-default btn-flat user_profiler">Профиль</a>
+                    </div>
+                    <div class="pull-right">
+                      <a href="/logout" class="btn btn-default btn-flat btn_logout">Выход</a>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <!-- Control Sidebar Toggle Button
+              <li>
+                <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+              </li>-->
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <!-- Left side column. contains the logo and sidebar -->
+      <aside class="main-sidebar">
+
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+
+       
+          
+
+          <!-- Sidebar Menu -->
+          <ul class="sidebar-menu">
+            <li class="header">Основное меню</li>
+            <!-- Optionally, you can add icons to the links -->
+
+                <li {{#IFactive v1 '1'}}  class="active" {{/IFactive}}><a id = "admin_dashboard" class="admin_menu_item"  href="/admin/menu/admin_dashboard"><i class="fa fa-dashboard"></i> <span>Состояние сайта</span></a></li>
+
+
+                <li {{#IFactive v1 '2'}}  class="active" {{/IFactive}}><a id="exhibition_calender" class="admin_menu_item" href="/admin/menu/exhibition_calender"><i class="fa fa-calendar"></i> <span>Выставки</span></a></li>
+                <li {{#IFactive v1 '3'}}  class="active" {{/IFactive}}><a href="/admin/menu/users" id = "users" class="admin_menu_item"><i class="fa fa-users"></i> <span>Пользователи</span></a></li>
+                <li {{#IFactive v1 '4'}}  class="active" {{/IFactive}} class="treeview">
+                  <a href="#"><i class="fa fa-sitemap"></i> <span>Настройка сайта</span> <i class="fa fa-angle-left pull-right"></i></a>
+                  <ul class="treeview-menu">
+                      <li {{#IFactive_sub v11 '5'}}  class="active" {{/IFactive_sub}}><a id = "menu_edit" class="admin_menu_item"  href="/admin/menu/menu_edit"><i class="fa fa-bars "></i>Настройка пунктов меню</a></li>
+                      <li {{#IFactive_sub v11 '8'}}  class="active" {{/IFactive_sub}}><a id="page_edit"  class="admin_menu_item" href="/admin/menu/page_edit"><i class="fa fa-file-text"></i>Настройка страниц</a></li>
+                      <li {{#IFactive_sub v11 '6'}}  class="active" {{/IFactive_sub}}><a id="template_edit"  class="admin_menu_item" href="/admin/menu/template_edit"><i class="fa fa-edit"></i>Настройка hbs,js и css</a></li>
+                      <li {{#IFactive_sub v11 '7'}}  class="active" {{/IFactive_sub}}><a id="smtp_edit"  class="admin_menu_item" href="/admin/menu/settings_smtp"><i class="fa fa-envelope-o"></i>Настройка SMTP</a></li>
+                      <li {{#IFactive_sub v11 '8'}}  class="active" {{/IFactive_sub}}><a id="other_settings_edit"  class="admin_menu_item" href="/admin/menu/other_settings"><i class="fa fa-envelope-o"></i>Другие настройки</a></li>
+                  </ul>
+                </li>
+
+          </ul><!-- /.sidebar-menu -->
+        </section>
+        <!-- /.sidebar -->
+      </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <h1>
+
+
+                </h1>
+
+            </section>
+
+            <!-- Main content -->
+            <section id="content">
+                {{{content}}}
+            </section>
+        </div>
+        <!-- Main Footer -->
+        <footer class="main-footer">
+            <!-- To the right -->
+            <div class="pull-right hidden-xs">
+                KMKYA Company
+            </div>
+            <!-- Default to the left -->
+            <strong>Copyright &copy; 2015 <a href="#">Markov Sergii</a>.</strong> All rights reserved.
+        </footer>
+
+
+
+
+
+
+        <div class="modal" id="user_edit_form">
+            <div class="modal-dialog modal-mega-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span></button>
+                        <h4 class="modal-title">Редактирование пользователя</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div id="form_edit_content"></div>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+
+
+
+
+
+      </div>
+    <!-- REQUIRED JS SCRIPTS -->
+
+    <!-- jQuery 2.1.4 -->
+    <script src="/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+    <!-- jQuery UI -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <!-- Bootstrap 3.3.5 -->
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="/dist/js/app.min.js"></script>
+    <!-- ChartJS 1.0.1 -->
+    <script src="/plugins/chartjs/Chart.min.js"></script>
+    <script src="/plugins/chartjs/Chart.min.js"></script>
+    <!-- DataTables -->
+    <script src="/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="/plugins/datatables/dataTables.bootstrap.min.js"></script>
+    <!-- EDITOR -->
+    <script src="/plugins/CKEditor/ckeditor.js"></script>
+    <script type="text/javascript" src="/plugins/CKEditor/adapters/jquery.js"></script>
+    <!--  daterangepicker -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
+    <script src="/plugins/daterangepicker/daterangepicker.js"></script>
+
+    <!-- sweet alert -->
+    <script src="/js/sweetalert.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2-rc.1/js/select2.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.3/ace.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.3/theme-monokai.js"></script>
+
+    <!-- myscript -->
+    <!-- <script src="/js/admin098.js"></script>-->
+      <script src="/js/admin_menu_edit_exhibition.js"></script>
+      <script src="/js/admin_menu_edit_menu.js"></script>
+      <script src="/js/admin_menu_edit_page.js"></script>
+      <script src="/js/admin_menu_edit_smtp.js"></script>
+      <script src="/js/admin_menu_edit_user.js"></script>
+      <script src="/js/admin_menu_template.js"></script>
+      <script src="/js/admin_menu_edit_other_settings.js"></script>
+
+
+    </body>
+  </html>

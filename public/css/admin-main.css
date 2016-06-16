@@ -1,0 +1,156 @@
+.fa-eye:hover
+{
+    color:mediumblue;
+    cursor: pointer;
+}
+
+.fa-eye{
+    color: cadetblue;
+    cursor: default;
+}
+
+.fa-arrow-up:hover
+{
+    color:green;
+    cursor: pointer;
+}
+
+.fa-arrow-up{
+    color: grey;
+    cursor: default;
+}
+
+.fa-arrow-down:hover
+{
+    color:red;
+    cursor: pointer;
+}
+
+.fa-arrow-down{
+    color: grey;
+    cursor: default;
+}
+
+.fa-check{
+    color: green;
+    cursor: pointer;
+}
+
+.fa-ban{
+    color: red;
+    cursor: pointer;
+}
+
+.fa-pencil{
+    color: cadetblue;
+    cursor: default;
+}
+
+.fa-pencil:hover{
+    color: mediumblue;
+    cursor: pointer;
+}
+
+.fa-trash-o{
+    color: darkred;
+    cursor: default;
+}
+
+.fa-trash-o:hover{
+    color: red;
+    cursor: pointer;
+}
+
+
+.fa-barcode{
+    color: cadetblue;
+    cursor: default;
+}
+
+.fa-barcode:hover{
+    color: mediumblue;
+    cursor: pointer;
+}
+
+.fa-question{
+    color: cadetblue;
+    cursor: default;
+}
+
+.fa-question:hover{
+    color: mediumblue;
+    cursor: pointer;
+}
+
+.fa-file-text-o{
+    color: cadetblue;
+    cursor: default;
+}
+
+.fa-file-text-o:hover{
+    color: mediumblue;
+    cursor: pointer;
+}
+
+.del_added_simple_answer{
+    color: cadetblue;
+    cursor: default;
+}
+
+.del_added_simple_answer:hover{
+    color: red;
+    cursor: pointer;
+}
+
+
+.dt-center
+{
+    text-align: center;
+}
+
+.ban_area
+{
+    color:black;
+}
+
+.modal-mega
+{
+    width: 1400px!important;
+}
+
+.modal-mega-sm
+{
+    width: 1200px!important;
+}
+
+.modal:nth-of-type(even) {
+    z-index: 1042 !important;
+}
+.modal-backdrop.in:nth-of-type(even) {
+    z-index: 1041 !important;
+}
+.box
+{
+    margin-bottom: 0px;
+}
+
+#editor {
+    position: relative;
+    width: 90%;
+    height: 600px;
+    display: inline-block;
+    margin: 0 auto;
+    left:50px;
+
+}
+
+.file_type_title:hover, .file:hover
+{
+    cursor: pointer;
+}
+
+.file_type_title, .file
+{
+    cursor: default;
+}
+
