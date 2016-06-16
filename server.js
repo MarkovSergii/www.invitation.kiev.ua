@@ -2,7 +2,7 @@
  * Created by user on 15.06.2016.
  */
 var app = require('./app');
-
+console.log("Hello!");
 
 
 
