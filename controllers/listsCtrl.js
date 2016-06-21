@@ -44,11 +44,12 @@ module.exports  = function() {
                     res.send({err:err,status:false});
                 }
 
+                data.push({id:-1,name_ru:"Другой",name_ukr:"Інший",name_en:"Other"});
                 res.send(data);
             });
         }
 
-    }
+    };
 
     return task;
 
