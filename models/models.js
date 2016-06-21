@@ -69,6 +69,54 @@ var obj = {
     }, {
         freezeTableName: true // Model tableName will be the same as the model name
     }),
+    Country : sequelize.define('country', {
+        name_ru: {
+            type: Sequelize.STRING
+        },
+        name_en: {
+            type: Sequelize.STRING
+        },
+        name_ukr: {
+            type: Sequelize.STRING
+        },
+        order_by: {
+    type: Sequelize.INTEGER
+}
+    }, {
+        freezeTableName: true // Model tableName will be the same as the model name
+    }),
+    Oblast : sequelize.define('oblast', {
+        name_ru: {
+            type: Sequelize.STRING
+        },
+        name_en: {
+            type: Sequelize.STRING
+        },
+        name_ukr: {
+            type: Sequelize.STRING
+        },
+        order_by: {
+            type: Sequelize.INTEGER
+        }
+    }, {
+        freezeTableName: true // Model tableName will be the same as the model name
+    }),
+    City : sequelize.define('city', {
+        name_ru: {
+            type: Sequelize.STRING
+        },
+        name_en: {
+            type: Sequelize.STRING
+        },
+        name_ukr: {
+            type: Sequelize.STRING
+        },
+        order_by: {
+            type: Sequelize.INTEGER
+        }
+    }, {
+        freezeTableName: true // Model tableName will be the same as the model name
+    }),
     Menus : sequelize.define('menu', {
         name_ru: {
             type: Sequelize.STRING
@@ -144,4 +192,7 @@ var obj = {
 //obj.Menus.sync({force: true});
 //obj.Smtp_settings.sync({force: true});
 //obj.Settings.sync({force: true});
+//obj.Country.sync({force: true});
+//obj.Oblast.sync({force: true});
+//obj.City.sync({force: true});
 module.exports = obj;
