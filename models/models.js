@@ -111,6 +111,9 @@ var obj = {
         name_ukr: {
             type: Sequelize.STRING
         },
+        oblast_id: {
+            type: Sequelize.INTEGER
+        },
         order_by: {
             type: Sequelize.INTEGER
         }
