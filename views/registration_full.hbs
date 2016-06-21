@@ -6,10 +6,44 @@
 
         <!-- Text input-->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="input_email">Email</label>
+            <label class="col-md-4 control-label" for="input_firstname">First Name</label>
             <div class="col-md-4">
-                <input id="input_email" name="input_email" type="text" placeholder="Email" class="form-control input-md" required="">
+                <input id="input_firstname" name="input_firstname" type="text" placeholder="First Name" class="form-control input-md" required="">
+                <span id="firstname_span" class="error" hidden>Enter your First Name</span>
+            </div>
+        </div>
 
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="input_FIO">Last Name</label>
+            <div class="col-md-4">
+                <input id="input_lastname" name="input_lastname" type="text" placeholder="Last Name" class="form-control input-md" required="">
+                <span id="lastname_span" class="error" hidden>Enter your Last Name</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="input_FIO">Company</label>
+            <div class="col-md-4">
+                <input id="input_company" name="input_company" type="text" placeholder="Company" class="form-control input-md" required="">
+                <span id="span_company" class="error" hidden>Enter your Company</span>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+        <label class="col-md-4 control-label" for="input_email">Email</label>
+        <div class="col-md-4">
+            <input id="input_email" name="input_email" type="text" placeholder="Email" class="form-control input-md" required="">
+            <span id="email_span" class="error" hidden>Enter real email</span>
+        </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="input_mobile">mobile</label>
+            <div class="col-md-4">
+                <input id="input_mobile" name="input_mobile" type="text" placeholder="mobile" class="form-control input-md" required="">
+                <span id="mobile_span" class="error" hidden>Введите номер телефона</span>
             </div>
         </div>
 
@@ -18,6 +52,7 @@
             <label class="col-md-4 control-label" for="input_password">Password</label>
             <div class="col-md-4">
                 <input id="input_password" name="input_password" type="password" placeholder="Password" class="form-control input-md" required="">
+                <span id="password_span" class="error" hidden>Пароль должен быть более 6 знаков и содержать только буквы и цыфры</span>
 
             </div>
         </div>
@@ -27,58 +62,41 @@
             <label class="col-md-4 control-label" for="input_re_password">Re Enter Password</label>
             <div class="col-md-4">
                 <input id="input_re_password" name="input_re_password" type="password" placeholder="Password" class="form-control input-md" required="">
-
+                <span id="repassword_span" class="error" hidden>Пароли не совпадают</span>
             </div>
         </div>
 
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="input_FIO">Фамилия Имя Очество</label>
-            <div class="col-md-4">
-                <input id="input_FIO" name="input_FIO" type="text" placeholder="Фамилия Имя Очество" class="form-control input-md" required="">
-
-            </div>
-        </div>
-
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="input_mobile">Мобильный</label>
-            <div class="col-md-4">
-                <input id="input_mobile" name="input_mobile" type="text" placeholder="Мобильный" class="form-control input-md" required="">
-
-            </div>
-        </div>
 
         <!-- Select Basic -->
         <div class="form-group">
             <label class="col-md-4 control-label" for="input_country">Страна</label>
             <div class="col-md-4">
                 <select id="input_country" name="input_country" class="form-control">
-                    <option value="1">Страна 1</option>
-                    <option value="2">Страна 2</option>
-                </select>
-            </div>
-        </div>
 
-        <!-- Select Basic -->
+                </select>
+                   <span id="country_span" class="error" hidden>Нужно выбрать страну</span>
+               </div>
+           </div>
+
+           <!-- Select Basic -->
         <div class="form-group">
             <label class="col-md-4 control-label" for="input_oblast">Область</label>
             <div class="col-md-4">
                 <select id="input_oblast" name="input_oblast" class="form-control">
-                    <option value="1">Option one</option>
-                    <option value="2">Option two</option>
+
                 </select>
+                <span id="oblast_span" class="error" hidden>Нужно выбрать область</span>
             </div>
         </div>
 
         <!-- Select Basic -->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="input_city">Город</label>
+            <label class="col-md-4 control-label" for="input_city_select">Город</label>
             <div class="col-md-4">
-                <select id="input_city" name="input_city" class="form-control">
-                    <option value="1">Option one</option>
-                    <option value="2">Option two</option>
+                <select id="input_city_select" name="input_city" class="form-control">
+
                 </select>
+                <span id="city_select_span" class="error" hidden>Нужно выбрать город</span>
             </div>
         </div>
 
@@ -87,7 +105,17 @@
             <label class="col-md-4 control-label" for="input_city">Город</label>
             <div class="col-md-4">
                 <input id="input_city" name="input_city" type="text" placeholder="Город" class="form-control input-md" required="">
+                <span id="city_span" class="error" hidden>Нужно выбрать город</span>
+            </div>
+        </div>
 
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="input_postindex">Почтовый индекс</label>
+            <div class="col-md-4">
+                <input id="input_postindex" name="input_postindex" type="text" placeholder="Номер дома" class="form-control input-md" required="">
+                <span id="postindex_span" class="error" hidden>Нужно указать почтовый индекс</span>
             </div>
         </div>
 
@@ -96,7 +124,7 @@
             <label class="col-md-4 control-label" for="input_street_num">Номер дома</label>
             <div class="col-md-4">
                 <input id="input_street_num" name="input_street_num" type="text" placeholder="Номер дома" class="form-control input-md" required="">
-
+                <span id="street_num_span" class="error" hidden>Нужно указать номер дома</span>
             </div>
         </div>
 
@@ -105,7 +133,7 @@
             <label class="col-md-4 control-label" for="input_office">№ Квартиры или офиса</label>
             <div class="col-md-4">
                 <input id="input_office" name="input_office" type="text" placeholder="№ Квартиры или офиса" class="form-control input-md" required="">
-
+                <span id="office_span" class="error" hidden>Нужно указать № Квартиры или офиса</span>
             </div>
         </div>
 
@@ -113,7 +141,7 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="btn_register"></label>
             <div class="col-md-4">
-                <button id="btn_register" name="btn_register" class="btn btn-success btn-block">Register</button>
+                <button id="btn_register" type="button" name="btn_register" class="btn btn-success btn-block">Register</button>
             </div>
         </div>
 
