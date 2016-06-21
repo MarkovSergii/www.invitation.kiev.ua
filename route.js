@@ -10,6 +10,7 @@ var adminRenderCtrl = require('./controllers/adminRenderCtrl')();
 var userCtrl = require('./controllers/userCtrl')();
 var pageCtrl = require('./controllers/pageCtrl')();
 var menuCtrl = require('./controllers/menuCtrl')();
+var listCtrl = require('./controllers/listsCtrl')();
 var adminSMTPCtrl = require('./controllers/adminSMTPCtrl')();
 var adminFileCtrl = require('./controllers/adminFileCtrl')();
 var settingsCtrl = require('./controllers/settingsCtrl')();
@@ -113,6 +114,13 @@ router.get('/verificate/:id',userCtrl.user_email_verificate);
 router.post('/forgot_ask',userCtrl.ask_change_password); // send email
 router.get('/user/new_pass/:id',userCtrl.user_form_new_password); //  form for change
 router.post('/user/change_password',userCtrl.change_password); // change pass
+
+
+router.get('/country',listCtrl.getCountries);
+router.get('/oblast',listCtrl.getOblasts);
+router.get('/city/:id',listCtrl.getCities);
+
+
 
 //add user
 router.post('/user',userCtrl.adduser);
