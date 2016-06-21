@@ -273,7 +273,7 @@ module.exports  = function(){
 
             get_main_template(req, res, function (err, global_data) {
 
-               res.render('user_new_pass',{user:req.params.id}, function (err, html) {
+               res.render('forgot_password_new_pass_page',{user:req.params.id}, function (err, html) {
                    global_data.content = html;
                    res.render('index', global_data);
                    });
@@ -343,7 +343,7 @@ module.exports  = function(){
 
                         userModel.addUser(user,function(err,data){
                             if (err) {
-                                // ошибка сервера или такой пользователь уже есть
+                                // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
                                 res.send({err:err,status:false,msg:"DB error"})
                             }
                             task.send_verification_email(user,function(err,data){
