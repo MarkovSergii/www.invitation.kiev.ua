@@ -130,29 +130,6 @@ function Registration (reg_type)
            $('#lastname_span').show();
            return false
        }
-       if ($('#input_email').val().match(/^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i) == null)
-       {
-           $('#email_span').show();
-           return false
-       }
-
-       if ($('#input_mobile').val().length==0)
-       {
-           $('#mobile_span').show();
-           return false
-       }
-
-       if ($('#input_password').val().match(/^[а-яА-ЯёЁa-zA-Z0-9]{6,}$/i)== null)
-       {
-           $('#password_span').show();
-           return false
-       }
-
-       if ($('#input_password').val()!=$('#input_re_password').val())
-       {
-           $('#repassword_span').show();
-           return false
-       }
 
        if ($("#input_country").val() == null)
        {
@@ -162,23 +139,21 @@ function Registration (reg_type)
 
        if ($('#input_oblast').is(':visible') && ($("#input_oblast").val() == null))
        {
-               $('#oblast_span').show();
-               return false
+           $('#oblast_span').show();
+           return false
        }
        if ($('#input_city_select').is(':visible') && ($("#input_city_select").val() == null))
        {
-               $('#city_select_span').show();
-               return false
+           $('#city_select_span').show();
+           return false
        }
 
 
        if ( $('#input_city').is(':visible')  && ($("#input_city").val().length==0))
        {
-               $('#city_span').show();
-               return false
+           $('#city_span').show();
+           return false
        }
-
-
 
        if (this.registration_type == 'full')
        {
@@ -203,6 +178,31 @@ function Registration (reg_type)
        }
 
 
+       if ($('#input_email').val().match(/^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i) == null)
+       {
+           $('#email_span').show();
+           return false
+       }
+
+       if ($('#input_mobile').val().length==0)
+       {
+           $('#mobile_span').show();
+           return false
+       }
+
+       if ($('#input_password').val().match(/^[а-яА-ЯёЁa-zA-Z0-9]{6,}$/i)== null)
+       {
+           $('#password_span').show();
+           return false
+       }
+
+       if ($('#input_password').val()!=$('#input_re_password').val())
+       {
+           $('#repassword_span').show();
+           return false
+       }
+
+      
        return true
 
    };
@@ -236,6 +236,10 @@ function Registration (reg_type)
            oblast.show_input();
            city.hide_input();
            city.hide_select();
+           // set mobile format
+           $('#input_mobile').val('0');
+           $('#input_mobile').mask('+38(000) 000-00-00');
+
        }
         else
        {
@@ -243,6 +247,11 @@ function Registration (reg_type)
            oblast.hide_input();
            city.show_input();
            city.hide_select();
+           // set mobile format
+           $('#input_mobile').val('');
+           $('#input_mobile').mask('0#');
+
+           
        }
     };
     this.oblast_select = function()
