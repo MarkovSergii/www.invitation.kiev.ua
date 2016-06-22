@@ -26,6 +26,36 @@ var obj = {
         company: {
             type: Sequelize.STRING
         },
+        country_id: {
+            type: Sequelize.INTEGER
+        },
+        country__text: {
+            type: Sequelize.STRING
+        },
+        oblast_id: {
+            type: Sequelize.INTEGER
+        },
+        oblast__text: {
+            type: Sequelize.STRING
+        },
+        city_id: {
+            type: Sequelize.INTEGER
+        },
+        city__text: {
+            type: Sequelize.STRING
+        },
+        postindex: {
+            type: Sequelize.STRING
+        },
+        street: {
+            type: Sequelize.STRING
+        },
+        street_num: {
+            type: Sequelize.STRING
+        },
+        office: {
+            type: Sequelize.STRING
+        },
         email: {
             type: Sequelize.STRING
         },
