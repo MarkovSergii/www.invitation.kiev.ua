@@ -177,6 +177,52 @@ var obj = {
     }, {
         freezeTableName: true // Model tableName will be the same as the model name
     }),
+    Exhibitions : sequelize.define('exhibitions', {
+        content_ru: {
+            type: Sequelize.STRING
+        },
+        content_en: {
+            type: Sequelize.STRING
+        },
+        content_ukr: {
+            type: Sequelize.STRING
+        },
+        content_res_ru: {
+            type: Sequelize.STRING
+        },
+        content_res_en: {
+            type: Sequelize.STRING
+        },
+        content_res_ukr: {
+            type: Sequelize.STRING
+        },
+        name_ru: {
+            type: Sequelize.STRING
+        },
+        name_en: {
+            type: Sequelize.STRING
+        },
+        name_ukr: {
+            type: Sequelize.STRING
+        },
+        date_begin: {
+            type: Sequelize.DATE
+        },
+        date_end: {
+            type: Sequelize.DATE
+        },
+        visible: {
+            type: Sequelize.BOOLEAN, defaultValue: false
+        }
+    }, {
+        freezeTableName: true // Model tableName will be the same as the model name
+    }),
+
+
+
+
+
+
     Settings : sequelize.define('settings', {
     name: {
         type: Sequelize.STRING
@@ -198,4 +244,5 @@ var obj = {
 //obj.Country.sync({force: true});
 //obj.Oblast.sync({force: true});
 //obj.City.sync({force: true});
+//obj.Exhibitions.sync({force: true});
 module.exports = obj;
