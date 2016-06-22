@@ -28,7 +28,7 @@ var obj = {
 
     },
     getCities:function(oblast_id, callback){
-        models.City.findAll({where:{oblast_id:oblast_id}})
+        models.City.findAll({order:"order_by",where:{oblast_id:oblast_id}})
             .then(function(countries) {
                 callback(null,countries)
             })
