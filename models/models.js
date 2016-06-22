@@ -29,19 +29,19 @@ var obj = {
         country_id: {
             type: Sequelize.INTEGER
         },
-        country__text: {
+        country_text: {
             type: Sequelize.STRING
         },
         oblast_id: {
             type: Sequelize.INTEGER
         },
-        oblast__text: {
+        oblast_text: {
             type: Sequelize.STRING
         },
         city_id: {
             type: Sequelize.INTEGER
         },
-        city__text: {
+        city_text: {
             type: Sequelize.STRING
         },
         postindex: {
