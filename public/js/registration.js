@@ -111,6 +111,7 @@ function Registration (reg_type)
             $('#city_select_span').hide();
             $('#city_span').hide();
             $('#street_num_span').hide();
+            $('#street_span').hide();
             $('#office_span').hide();
         }
     };
@@ -163,12 +164,19 @@ function Registration (reg_type)
                $('#postindex_span').show();
                return false
            }
+           // улица
+           if ($('#input_street').val().length==0)
+           {
+               $('#street_span').show();
+               return false
+           }
            // номер улицы
            if ($('#input_street_num').val().length==0)
            {
                $('#street_num_span').show();
                return false
            }
+
            // номер дома
            if ($('#input_office').val().length==0)
            {
@@ -283,8 +291,46 @@ function Registration (reg_type)
                company: $('#input_company').val(),
                email: $('#input_email').val(),
                password: $('#input_password').val(),
-               mobile: $('#input_mobile').val()
+               mobile: $('#input_mobile').val(),
+               country_id: $('#input_country').val(),
+               country_text: $('#input_country :selected').text(),
+               oblast_id: $('#input_oblast').val(),
+               oblast_text: $('#input_oblast :selected').text()
+
            };
+
+
+
+           if  (that.registration_type == 'full' )
+           {
+
+               user.city_id =  $('#input_city_select').val() ;
+
+               if ((user.city_id == '-1') ||  !$('#input_city_select').is(':visible'))
+               {
+                   user.city_text = $('#input_city').val();
+               }
+               else
+               {
+                   user.city_text = $('#input_city_select :selected').text();
+
+               }
+
+
+
+
+
+
+               user.postindex = $('#input_postindex').val();
+               user.street = $('#input_street').val();
+               user.street_num = $('#input_street_num').val();
+               user.office = $('#input_office').val();
+           }
+
+
+
+
+
 
            $.post(window.location.protocol + '//' + location.host + '/user', user, function (data) {
                if (data.err) {
