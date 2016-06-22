@@ -2,7 +2,91 @@
  * Created by user on 24.12.2015.
  */
 
+
+function Exhibition()
+{
+    this.init = function()
+    {
+        $('#exhibition_data_range').daterangepicker({
+
+            format: 'DD/MM/YYYY'
+
+        },function(start,end){
+            startDate = start;
+            endDate = end;
+        });
+
+        $('#edit_exhibition1_data_range').daterangepicker({
+
+            format: 'DD/MM/YYYY'
+
+        },function(start,end){
+            startDate = start;
+            endDate = end;
+
+        });
+    };
+    this.add = function()
+    {
+
+    };
+    this.delete = function()
+    {
+
+    };
+    this.update = function()
+    {
+
+    };
+    this.set_visible = function()
+    {
+
+    };
+    this.set_unvisible = function()
+    {
+
+    }
+
+
+
+
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 $(document).ready(function() {
+
+
+    var exhib = new Exhibition();
+
+    exhib.init();
+
+    
 
     var curent_exhibition_id;
     var curent_question_id;
@@ -50,24 +134,7 @@ $(document).ready(function() {
     }*/
 //--------------------------------------------------------------------------------------------------------------------
 //Date range picker
-     $('#exhibition_data_range').daterangepicker({
 
-        format: 'DD/MM/YYYY'
-
-    },function(start,end){
-         startDate = start;
-         endDate = end;
-     });
-
-    $('#edit_exhibition1_data_range').daterangepicker({
-
-       format: 'DD/MM/YYYY'
-
-    },function(start,end){
-        startDate = start;
-        endDate = end;
-
-    });
 //--------------------------------------------------------------------------------------------------------------------
     $('body').on('click','.exhibition_del',function() {
         $curent_elem = this;
