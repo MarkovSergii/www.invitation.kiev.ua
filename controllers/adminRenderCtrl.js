@@ -7,6 +7,7 @@ var menuCtrl = require('../controllers/menuCtrl')();
 var adminSMTPCtrl = require('../controllers/adminSMTPCtrl')();
 var adminFileCtrl = require('../controllers/adminFileCtrl')();
 var settingsCtrl = require('../controllers/settingsCtrl')();
+var adminExhibitionsCtrl = require('../controllers/adminExhibitionsCtrl')();
 
 module.exports  = function(){
 
@@ -39,16 +40,13 @@ module.exports  = function(){
         },
         menu_calendar:function(req,res){
 
-          /*  adminExhibitionsModel.get_admin_exhibition_list(function(data) {
+            adminExhibitionsCtrl.get_exhibition_list(function(err,data) {
 
                 res.render('admin_menu_exhibitions',{exhibition:data},function(err,html){
 
                     res.render('admin',{content:html,user:req.user,v1:'2'});
                 });
 
-            });*/
-            res.render('admin_menu_dashboard',function(err,html){
-                res.render('admin',{content:html,user:req.user,v1:'1'});
             });
         },
         settings_smtp:function(req,res){
