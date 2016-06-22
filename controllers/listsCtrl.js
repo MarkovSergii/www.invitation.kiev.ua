@@ -11,7 +11,8 @@ module.exports  = function() {
     var task = {
         getCountries : function(req,res)
         {
-            ListModel.getCountries(function(err,data)
+            var curent_lang = req.cookies.lang || 'en';
+            ListModel.getCountries(curent_lang,function(err,data)
             {
                 if (err)
                 {

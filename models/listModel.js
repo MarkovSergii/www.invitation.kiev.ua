@@ -5,8 +5,8 @@ var models = require('../models/models');
 
 
 var obj = {
-    getCountries:function(callback){
-        models.Country.findAll({order:"order_by"})
+    getCountries:function(lang,callback){
+        models.Country.findAll({order:"order_by,name_"+lang})
             .then(function(countries) {
                 callback(null,countries)
             })
