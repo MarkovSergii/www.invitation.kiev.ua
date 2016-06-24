@@ -41,3 +41,17 @@ a.active_item
 {
     background-color: #dddddd !important;
 }
+
+.dropdown a
+{
+    border-bottom-right-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    color: #E0DBD4 !important;
+}
+
+.dropdown a:hover
+{
+    border-bottom-right-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    color: #333 !important;
+}
