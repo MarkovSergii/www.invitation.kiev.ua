@@ -31,9 +31,10 @@ and (max-device-width : 480px) {
      margin-left: 0px;!important;
 }
 
-.active_item
+a.active_item
 {
-    background-color: #dddddd !important;
+    background-color: #dddddd;
+    color: #914B14 !important;
 }
 
 .page_item:hover

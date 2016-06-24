@@ -1604,8 +1604,7 @@ pre code {
   }
 }
 .container-fluid {
-  padding-right: 15px;
-  padding-left: 15px;
+  padding: 5px 15px;
   margin-right: auto;
   margin-left: auto;
 }
@@ -4219,7 +4218,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 @media (min-width: 768px) {
   .navbar {
-    border-radius: 4px;
+    border-radius: 14px;
   }
 }
 @media (min-width: 768px) {
@@ -4321,8 +4320,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-brand {
   float: left;
-
-  padding: 15px 15px;
+  padding: 0px 15px;
   font-size: 18px;
   line-height: 20px;
 }
@@ -4408,8 +4406,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     float: left;
   }
   .navbar-nav > li > a {
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 }
 .navbar-form {
@@ -4541,8 +4539,15 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-default {
-  background-color: #f8f8f8;
-  border-color: #e7e7e7;
+ // background-color: #f8f8f8;
+ // border-color: #e7e7e7;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#203b9c+25,101d4e+100 */
+  background: #203b9c; /* Old browsers */
+  background: -moz-radial-gradient(bottom, ellipse cover,  #203b9c 25%, #101d4e 100%); /* FF3.6-15 */
+  background: -webkit-radial-gradient(bottom, ellipse cover,  #203b9c 25%,#101d4e 100%); /* Chrome10-25,Safari5.1-6 */
+  background: radial-gradient(ellipse at bottom,  #203b9c 25%,#101d4e 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#203b9c', endColorstr='#101d4e',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
 }
 .navbar-default .navbar-brand {
   color: #777;
@@ -4556,7 +4561,9 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   color: #777;
 }
 .navbar-default .navbar-nav > li > a {
-  color: #777;
+  color: #E0DBD4;
+  border-radius: 25px;
+
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
