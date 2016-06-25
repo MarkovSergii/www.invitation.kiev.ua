@@ -78,13 +78,7 @@ adminSMTPCtrl.get_settings_smtp_JSON(function(data){
 
 
 
-
 app.use(router);
-
-
-app.use(function(req, res) {
-    res.status(404).render('404',{});
-});
 
 
 module.exports = app;

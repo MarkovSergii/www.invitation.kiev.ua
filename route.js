@@ -16,9 +16,23 @@ var adminFileCtrl = require('./controllers/adminFileCtrl')();
 var settingsCtrl = require('./controllers/settingsCtrl')();
 
 var email = require('./own_modules/email');
+var dictionary = require('./own_modules/translations');
 
+var def_lang = 'ru';
+var curent_lang = def_lang;
 
-
+router.use(function(req, res,next) {
+    if (req.cookies.lang) {
+        curent_lang = req.cookies.lang;
+        next();
+    }
+    else {
+        // save def_lang
+        res.cookie('lang', def_lang);
+        curent_lang = def_lang;
+        next();
+    }
+});
 
 // Passport:
 router.use(passport.initialize());
@@ -62,7 +76,7 @@ var pass = passport.authenticate('local',{ successRedirect: '/' });
 var mustBeAuth = function(req,res,next){
 
     if (req.isAuthenticated()) { next() }
-    else res.render('401',{});
+    else res.render('401',{dictionary:dictionary(curent_lang)});
 
 };
 
@@ -77,12 +91,12 @@ var mustBeAdmin = function(req,res,next){
         }
         else
         {
-            res.render('403',{})
+            res.render('403',{dictionary:dictionary(curent_lang)})
         }
     }
     else
     {
-        res.render('401',{})
+        res.render('401',{dictionary:dictionary(curent_lang)})
     }
 };
 
@@ -90,21 +104,11 @@ router.get('/',userCtrl.index);
 router.get('/page/:id',userCtrl.get_page);
 router.get('/exhibitions',userCtrl.get_exhibitions);
 
-//router.post('/login',pass);
-
 
 router.post('/login',function(req,res)
 {
     pass(req,res);
-   // console.log(req.user);
-   // res.send('ok');
 });
-/*router.post('/login', passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login' }),function(err, user) {
-    // If this function gets called, authentication was successful.
-    // `req.user` contains the authenticated user.
-    console.log(user);
-  //  res.send("ok");
-});*/
 
 
 router.get('/logout',userCtrl.logout);
@@ -134,6 +138,7 @@ router.get('/user/*',mustBeAuth);
 
 // admin section
 router.get('/admin',mustBeAdmin);
+router.get('/admin/*',mustBeAdmin);
 router.get('/admin/*',mustBeAdmin);
 router.get('/admin/logout',userCtrl.logout);
 
@@ -181,6 +186,10 @@ router.post('/admin/file/delete',adminFileCtrl.deleteFile);
 // settings
 
 router.post('/admin/settings/registration_data',settingsCtrl.set_registration_type);
+
+router.use(function(req, res) {
+    res.status(404).render('404',{dictionary:dictionary(curent_lang)});
+});
 
 
 module.exports = router;

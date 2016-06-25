@@ -219,7 +219,7 @@ module.exports  = function(){
             };
 
 
-            app.render('email_verification',{user:user}, function(err, html){
+            app.render('email_verification',{user:user,dictionary:dictionary(curent_lang)}, function(err, html){
                 mailOptions.html = html;
 
                 email.sendEmail(mailOptions, function (email_result) {
@@ -245,7 +245,7 @@ module.exports  = function(){
             };
 
 
-            app.render('forgot_password_email',{user:user}, function(err, html){
+            app.render('forgot_password_email',{user:user,dictionary:dictionary(curent_lang)}, function(err, html){
                 mailOptions.html = html;
 
                 email.sendEmail(mailOptions, function (email_result) {
@@ -273,7 +273,7 @@ module.exports  = function(){
 
             get_main_template(req, res, function (err, global_data) {
 
-               res.render('forgot_password_new_pass_page',{user:req.params.id}, function (err, html) {
+               res.render('forgot_password_new_pass_page',{user:req.params.id,dictionary:dictionary(curent_lang)}, function (err, html) {
                    global_data.content = html;
                    res.render('index', global_data);
                    });
@@ -343,7 +343,6 @@ module.exports  = function(){
 
                         userModel.addUser(user,function(err,data){
                             if (err) {
-                                // ������ ������� ��� ����� ������������ ��� ����
                                 res.send({err:err,status:false,msg:"DB error"})
                             }
                             task.send_verification_email(user,function(err,data){
@@ -382,7 +381,7 @@ module.exports  = function(){
 
                         if (data.value == 'simple') {
                             // simple
-                            res.render('registration_simple', function (err, html) {
+                            res.render('registration_simple',{dictionary:dictionary(curent_lang)}, function (err, html) {
                                 global_data.content = html;
                                 res.render('index', global_data);
                             });
@@ -390,7 +389,7 @@ module.exports  = function(){
                         }
                         else {
                             // full
-                            res.render('registration_full', function (err, html) {
+                            res.render('registration_full',{dictionary:dictionary(curent_lang)}, function (err, html) {
                                 global_data.content = html;
                                 res.render('index', global_data);
                             });

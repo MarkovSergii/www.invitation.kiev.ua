@@ -2,145 +2,146 @@
     <fieldset>
 
         <!-- Form Name -->
-        <legend>Регистрация</legend>
+        <legend>{{dictionary.reg}}</legend>
 
         <!-- Text input-->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="input_firstname">First Name</label>
+            <label class="col-md-4 control-label" for="input_firstname">{{dictionary.first_name }}</label>
             <div class="col-md-4">
-                <input id="input_firstname" name="input_firstname" type="text" placeholder="First Name" class="form-control input-md" required="">
-                <span id="firstname_span" class="error" hidden>Enter your First Name</span>
+                <input id="input_firstname" name="input_firstname" type="text" placeholder="{{dictionary.first_name }}" class="form-control input-md" required="">
+                <span id="firstname_span" class="error" hidden>{{dictionary.first_name_error }}</span>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-md-4 control-label" for="input_FIO">Last Name</label>
+            <label class="col-md-4 control-label" for="input_FIO">{{dictionary.last_name }}</label>
             <div class="col-md-4">
-                <input id="input_lastname" name="input_lastname" type="text" placeholder="Last Name" class="form-control input-md" required="">
-                <span id="lastname_span" class="error" hidden>Enter your Last Name</span>
+                <input id="input_lastname" name="input_lastname" type="text" placeholder="{{dictionary.last_name }}" class="form-control input-md" required="">
+                <span id="lastname_span" class="error" hidden>{{dictionary.last_name_error  }}</span>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-md-4 control-label" for="input_FIO">Company</label>
+            <label class="col-md-4 control-label" for="input_FIO">{{dictionary.company }}</label>
             <div class="col-md-4">
-                <input id="input_company" name="input_company" type="text" placeholder="Company" class="form-control input-md" required="">
-                <span id="span_company" class="error" hidden>Enter your Company</span>
+                <input id="input_company" name="input_company" type="text" placeholder="{{dictionary.company }}" class="form-control input-md" required="">
+                <span id="span_company" class="error" hidden>{{dictionary.company_error }}</span>
             </div>
         </div>
 
         <!-- Select Basic -->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="input_country">Страна</label>
+            <label class="col-md-4 control-label" for="input_country">{{dictionary.country }}</label>
             <div class="col-md-4">
                 <select id="input_country" name="input_country" class="form-control">
 
                 </select>
-                <span id="country_span" class="error" hidden>Нужно выбрать страну</span>
+                <span id="country_span" class="error" hidden>{{dictionary.country_error }}</span>
             </div>
         </div>
 
         <!-- Select Basic -->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="input_oblast">Область</label>
+            <label class="col-md-4 control-label" for="input_oblast">{{dictionary.oblast }}</label>
             <div class="col-md-4">
                 <select id="input_oblast" name="input_oblast" class="form-control">
 
                 </select>
-                <span id="oblast_span" class="error" hidden>Нужно выбрать область</span>
+                <span id="oblast_span" class="error" hidden>{{dictionary.oblast_error }}</span>
             </div>
         </div>
 
         <!-- Select Basic -->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="input_city_select">Город</label>
+            <label class="col-md-4 control-label" for="input_city_select">{{dictionary.city  }}</label>
             <div class="col-md-4">
                 <select id="input_city_select" name="input_city" class="form-control">
 
                 </select>
-                <span id="city_select_span" class="error" hidden>Нужно выбрать город</span>
+                <span id="city_select_span" class="error" hidden>{{dictionary.city_error}}</span>
             </div>
         </div>
 
         <!-- Text input-->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="input_city">Город</label>
+            <label class="col-md-4 control-label" for="input_city">{{dictionary.city  }}</label>
             <div class="col-md-4">
-                <input id="input_city" name="input_city" type="text" placeholder="Город" class="form-control input-md" required="">
-                <span id="city_span" class="error" hidden>Нужно выбрать город</span>
+                <input id="input_city" name="input_city" type="text" placeholder="{{dictionary.city}}" class="form-control input-md" required="">
+                <span id="city_span" class="error" hidden>{{dictionary.city_error}}</span>
             </div>
         </div>
 
 
         <!-- Text input-->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="input_postindex">Почтовый индекс</label>
+            <label class="col-md-4 control-label" for="input_postindex">{{dictionary.postindex   }}</label>
             <div class="col-md-4">
-                <input id="input_postindex" name="input_postindex" type="text" placeholder="Номер дома" class="form-control input-md" required="">
-                <span id="postindex_span" class="error" hidden>Нужно указать почтовый индекс</span>
+                <input id="input_postindex" name="input_postindex" type="text" placeholder="{{dictionary.postindex   }}" class="form-control input-md" required="">
+                <span id="postindex_span" class="error" hidden>{{dictionary.postindex_error   }}</span>
             </div>
         </div>
 
         <!-- Text input-->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="input_street">Название улицы</label>
+            <label class="col-md-4 control-label" for="input_street">{{dictionary.street }}</label>
             <div class="col-md-4">
-                <input id="input_street" name="input_street" type="text" placeholder="Название улицы" class="form-control input-md" required="">
-                <span id="street_span" class="error" hidden>Нужно указать название улицы</span>
+                <input id="input_street" name="input_street" type="text" placeholder="{{dictionary.street }}" class="form-control input-md" required="">
+                <span id="street_span" class="error" hidden>{{dictionary.street_error }}</span>
             </div>
         </div>
 
         <!-- Text input-->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="input_street_num">Номер дома</label>
+            <label class="col-md-4 control-label" for="input_street_num">{{dictionary.street_num  }}</label>
             <div class="col-md-4">
-                <input id="input_street_num" name="input_street_num" type="text" placeholder="Номер дома" class="form-control input-md" required="">
-                <span id="street_num_span" class="error" hidden>Нужно указать номер дома</span>
+                <input id="input_street_num" name="input_street_num" type="text" placeholder="{{dictionary.street_num  }}" class="form-control input-md" required="">
+                <span id="street_num_span" class="error" hidden>{{dictionary.street_num_error  }}</span>
             </div>
         </div>
 
         <!-- Text input-->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="input_office">№ Квартиры или офиса</label>
+            <label class="col-md-4 control-label" for="input_office">{{dictionary.office   }}</label>
             <div class="col-md-4">
-                <input id="input_office" name="input_office" type="text" placeholder="№ Квартиры или офиса" class="form-control input-md" required="">
-                <span id="office_span" class="error" hidden>Нужно указать № Квартиры или офиса</span>
+                <input id="input_office" name="input_office" type="text" placeholder="{{dictionary.office   }}" class="form-control input-md" required="">
+                <span id="office_span" class="error" hidden>{{dictionary.office   }}</span>
             </div>
-        </div>
-
-        <div class="form-group">
-        <label class="col-md-4 control-label" for="input_email">Email</label>
-        <div class="col-md-4">
-            <input id="input_email" name="input_email" type="text" placeholder="Email" class="form-control input-md" required="">
-            <span id="email_span" class="error" hidden>Enter real email</span>
-        </div>
         </div>
 
         <!-- Text input-->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="input_mobile">mobile</label>
+            <label class="col-md-4 control-label" for="input_email">{{dictionary.email }}</label>
             <div class="col-md-4">
-                <input id="input_mobile" name="input_mobile" type="text" placeholder="mobile" class="form-control input-md" required="">
-                <span id="mobile_span" class="error" hidden>Введите номер телефона</span>
+                <input id="input_email" name="input_email" type="text" placeholder="{{dictionary.email }}" class="form-control input-md" required="">
+                <span id="email_span" class="error" hidden>{{dictionary.email_error }}</span>
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="input_mobile">{{dictionary.mobile  }}</label>
+            <div class="col-md-4">
+                <input id="input_mobile" name="input_mobile" type="text" placeholder="{{dictionary.mobile  }}" class="form-control input-md" required="">
+                <span id="mobile_span" class="error" hidden>{{dictionary.mobile_error }}</span>
             </div>
         </div>
 
         <!-- Password input-->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="input_password">Password</label>
+            <label class="col-md-4 control-label" for="input_password">{{dictionary.password }}</label>
             <div class="col-md-4">
-                <input id="input_password" name="input_password" type="password" placeholder="Password" class="form-control input-md" required="">
-                <span id="password_span" class="error" hidden>Пароль должен быть более 6 знаков и содержать только буквы и цыфры</span>
+                <input id="input_password" name="input_password" type="password" placeholder="{{dictionary.password }}" class="form-control input-md" required="">
+                <span id="password_span" class="error" hidden>{{dictionary.password_error }}</span>
 
             </div>
         </div>
 
         <!-- Password input-->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="input_re_password">Re Enter Password</label>
+            <label class="col-md-4 control-label" for="input_re_password">{{dictionary.repassword }}</label>
             <div class="col-md-4">
-                <input id="input_re_password" name="input_re_password" type="password" placeholder="Password" class="form-control input-md" required="">
-                <span id="repassword_span" class="error" hidden>Пароли не совпадают</span>
+                <input id="input_re_password" name="input_re_password" type="password" placeholder="{{dictionary.repassword }}" class="form-control input-md" required="">
+                <span id="repassword_span" class="error" hidden>{{dictionary.repassword_error }}</span>
             </div>
         </div>
 
@@ -151,7 +152,7 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="btn_register"></label>
             <div class="col-md-4">
-                <button id="btn_register" type="button" name="btn_register" class="btn btn-success btn-block">Register</button>
+                <button id="btn_register" type="button" name="btn_register" class="btn btn-success btn-block">{{dictionary.reg_button}}</button>
             </div>
         </div>
 

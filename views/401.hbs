@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 2 | Log in</title>
+    <title>AdminLTE 2 | {{dictionary.enter_button}}</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -32,14 +32,14 @@
         <a href="#"><b>Admin</b>Invitation</a>
     </div><!-- /.login-logo -->
     <div class="login-box-body">
-        <p class="login-box-msg">Система заказа пригласительных на выставки КМКЯ</p>
+        <p class="login-box-msg">{{dictionary.app_name}}</p>
         <form action="#" method="post">
             <div class="form-group has-feedback">
-                <input  class="form-control" id="logininput" placeholder="Email">
+                <input  class="form-control" id="logininput" placeholder="{{dictionary.enter_placeholder_login}}">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="password" class="form-control" id="passwordinput" placeholder="пароль">
+                <input type="password" class="form-control" id="passwordinput" placeholder="{{dictionary.enter_placeholder_password}}">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
 
@@ -49,7 +49,7 @@
 
             </div><!-- /.col -->
             <div class="col-xs-4">
-                <button id="btn_login" class="btn btn-primary btn-block btn-flat">Войти</button>
+                <button id="btn_login" class="btn btn-primary btn-block btn-flat">{{dictionary.enter_button}}</button>
             </div><!-- /.col -->
         </div>
 

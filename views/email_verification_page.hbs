@@ -1,23 +1,24 @@
-thanks
+{{dictionary.email_verification_page_text1}}
+
 <script>
     var linkto;
 </script>
 {{#if this.err}}
-    Bad link
+    {{dictionary.email_verification_page_text2}}
 {{else}}
 
     {{#IFactive this.is_verify '1'}}
 
-        cool go to redirect
-        <span>Вы будите перенаправлены через </span><span id="counter">5</span><span> секунд</span>
+
+        <span>{{dictionary.email_verification_page_text3}} </span><span id="counter">5</span><span> {{dictionary.email_verification_page_text4}}</span>
         {{#if this.linkto}}
-            go to your exhibition
+
             <script>
                 linkto = '/exhibition/'+{{this.linkto}};
             </script>
 
         {{else}}
-            go to exhibition list
+
             <script>
                 linkto = '/exhibitions';
             </script>
@@ -42,7 +43,7 @@ thanks
     {{/IFactive}}
 
     {{#IFactive this.is_verify '0'}}
-        Bad link
+        {{dictionary.email_verification_page_text2}}
     {{/IFactive}}
 
 {{/if}}
