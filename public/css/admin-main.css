@@ -154,3 +154,9 @@
     cursor: default;
 }
 
+
+.wizard > .content
+{
+
+    min-height: 25em;
+}
