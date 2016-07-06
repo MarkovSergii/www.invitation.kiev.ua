@@ -88,13 +88,13 @@ var obj = {
             type: Sequelize.STRING
         },
         content_ru: {
-            type: Sequelize.STRING
+            type: Sequelize.TEXT
         },
         content_en: {
-            type: Sequelize.STRING
+            type: Sequelize.TEXT
         },
         content_ukr: {
-            type: Sequelize.STRING
+            type: Sequelize.TEXT
         }
     }, {
         freezeTableName: true // Model tableName will be the same as the model name
@@ -209,22 +209,22 @@ var obj = {
     }),
     Exhibitions : sequelize.define('exhibitions', {
         content_ru: {
-            type: Sequelize.STRING
+            type: Sequelize.TEXT
         },
         content_en: {
-            type: Sequelize.STRING
+            type: Sequelize.TEXT
         },
         content_ukr: {
-            type: Sequelize.STRING
+            type: Sequelize.TEXT
         },
         content_res_ru: {
-            type: Sequelize.STRING
+            type: Sequelize.TEXT
         },
         content_res_en: {
-            type: Sequelize.STRING
+            type: Sequelize.TEXT
         },
         content_res_ukr: {
-            type: Sequelize.STRING
+            type: Sequelize.TEXT
         },
         name_ru: {
             type: Sequelize.STRING
