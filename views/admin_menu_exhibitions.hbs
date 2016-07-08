@@ -42,7 +42,7 @@
     </div><!-- /.box-body -->
 </div>
 
-<div class="modal modal-default" id="exhibition_add_form">
+<div class="modal modal-default" id="exhibition_add_form" data-backdrop="static">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -51,21 +51,280 @@
                 <h4 class="modal-title">Добавления выставки</h4>
             </div>
             <div id="example-basic">
-                <h3>Keyboard</h3>
+                <h3>Базовая инфорация</h3>
                 <section>
-                    <p>Try the keyboard navigation by clicking arrow left or right!</p>
+                    <form class="form-horizontal">
+                        <fieldset>
+
+                            <div class="row">
+                                <div class="col-md-12">
+
+
+                                    <ul class="nav nav-tabs">
+                                        <li class="active"><a data-toggle="tab" href="#add_tab_ru">Русский</a></li>
+                                        <li><a data-toggle="tab" href="#add_tab_en">Английский</a></li>
+                                        <li><a data-toggle="tab" href="#add_tab_ukr">Украинский</a></li>
+                                    </ul>
+
+                                    <div class="tab-content">
+                                        <div id="add_tab_ru" class="tab-pane fade in active">
+                                            <!-- Text input-->
+                                            <br>
+                                            <div class="form-group">
+                                                <label class="col-md-4 control-label" for="add_menu_item_input_ru">Название выставки</label>
+                                                <div class="col-md-8">
+                                                    <input id="add_exhib_item_input_ru" name="add_menu_item_input_ru" type="text" placeholder="на русском" class="form-control input-md">
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div id="add_tab_en" class="tab-pane fade">
+                                            <!-- Text input-->
+                                            <br>
+                                            <div class="form-group">
+                                                <label class="col-md-4 control-label" for="add_menu_item_input_en">Название выставки</label>
+                                                <div class="col-md-8">
+                                                    <input id="add_exhib_item_input_en" name="add_menu_item_input_en" type="text" placeholder="на английском" class="form-control input-md">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="add_tab_ukr" class="tab-pane fade">
+                                            <!-- Text input-->
+                                            <br>
+                                            <div class="form-group">
+                                                <label class="col-md-4 control-label" for="add_menu_item_input_ukr">Название выставки</label>
+                                                <div class="col-md-8">
+                                                    <input id="add_exhib_item_input_ukr" name="add_menu_item_input_ukr" type="text" placeholder="на украинском" class="form-control input-md">
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <!-- Select Basic -->
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label" for="exhibition_data_range">Дата проведения выставки</label>
+                                        <div class="col-md-4">
+                                            <div class="input-group date">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-calendar"></i>
+                                                </div>
+                                                <input type="text" class="form-control pull-right active" id="exhibition_data_range">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                        </fieldset>
+                    </form>
                 </section>
-                <h3>Effects</h3>
+                <h3>Блок календаря</h3>
                 <section>
-                    <p>Wonderful transition effects.</p>
+                    <form class="form-horizontal">
+                        <fieldset>
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a data-toggle="tab" href="#add_calendar_tab_ru">Русский</a></li>
+                                <li><a data-toggle="tab" href="#add_calendar_tab_en">Английский</a></li>
+                                <li><a data-toggle="tab" href="#add_calendar_tab_ukr">Украинский</a></li>
+                            </ul>
+
+
+                            <div class="tab-content">
+                                <div id="add_calendar_tab_ru" class="tab-pane fade in active">
+                                    <!-- Text input-->
+
+
+                                    <div id="editor_calendar_ru"></div>
+
+                                </div>
+                                <div id="add_calendar_tab_en" class="tab-pane fade">
+                                    <!-- Text input-->
+
+                                    <div id="editor_calendar_en"></div>
+                                </div>
+                                <div id="add_calendar_tab_ukr" class="tab-pane fade">
+                                    <!-- Text input-->
+
+                                    <div id="editor_calendar_ukr"></div>
+
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
                 </section>
-                <h3>Pager</h3>
+                <h3>Блок вопросов</h3>
                 <section>
-                    <p>The next and previous buttons help you to navigate through your content.</p>
+                    <form class="form-horizontal">
+                        <fieldset>
+
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a data-toggle="tab" href="#question_first">Первый вопрос (ответ да/нет)</a></li>
+                                <li><a data-toggle="tab" href="#question_all">Для всех</a></li>
+
+                            </ul>
+
+
+                            <div class="tab-content">
+                                <div id="question_first" class="tab-pane fade in active">
+                                    <form class="form-horizontal">
+                                        <fieldset>
+                                            <legend>Вопрос определяющий необходиость опроса дальше</legend>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label class="col-md-4 control-label" for="add_simple_q_ru">Вопрос на русскоми</label>
+                                                        <div class="col-md-8">
+                                                            <input id="add_simple_q_ru" name="add_simple_q_ru" type="text" placeholder="на русском" class="form-control input-md">
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-md-4 control-label" for="add_simple_q_en">Вопрос на английском</label>
+                                                        <div class="col-md-8">
+                                                            <input id="add_simple_q_en" name="add_simple_q_en" type="text" placeholder="на английском" class="form-control input-md">
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-md-4 control-label" for="add_simple_q_ukr">Вопрос на украинском</label>
+                                                        <div class="col-md-8">
+                                                            <input id="add_simple_q_ukr" name="add_simple_q_ukr" type="text" placeholder="на украинском" class="form-control input-md">
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </form>
+                                </div>
+                                <div id="question_all" class="tab-pane fade">
+                                    <form class="form-horizontal">
+                                        <fieldset>
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    <span id="add_modal_new_question_btn"><i class="fa fa-plus-circle fa-2" aria-hidden="true"></i>Добавить</span>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <span id="save_new_question_btn" hidden><i class="fa fa-floppy-o fa-2" aria-hidden="true"></i>Сохранить</span>
+                                                    <span id="del_new_question_btn" hidden><i class="fa fa-minus-circle fa-2" aria-hidden="true"></i>Удалить</span>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12" >
+                                                    <div class="question_add_panel" hidden style="border-top: 1px solid lightgrey; padding:10px 5px;">
+                                                        <form class="form-horizontal">
+                                                            <fieldset>
+                                                                <div class="row">
+                                                                    <div class="col-md-9">
+                                                                        <div class="form-group">
+                                                                            <label class="col-md-4 control-label" for="add_answer_ru">Ответ на русскоми</label>
+                                                                            <div class="col-md-8">
+                                                                                <input id="add_answer_ru" name="add_answer_ru" type="text" placeholder="на русском" class="form-control input-md">
+
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label class="col-md-4 control-label" for="add_answer_en">Ответ на английском</label>
+                                                                            <div class="col-md-8">
+                                                                                <input id="add_answer_en" name="add_answer_en" type="text" placeholder="на английском" class="form-control input-md">
+
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label class="col-md-4 control-label" for="add_answer_ukr">Ответ на украинском</label>
+                                                                            <div class="col-md-8">
+                                                                                <input id="add_answer_ukr" name="add_answer_ukr" type="text" placeholder="на украинском" class="form-control input-md">
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <div class="checkbox">
+                                                                            <label>
+                                                                                <input id="add_answer_req" name="add_answer_req" type="checkbox">
+                                                                                Обязательное
+                                                                            </label>
+                                                                        </div>
+                                                                        <div class="checkbox">
+                                                                            <label>
+                                                                                <input id="add_answer_pro" name="add_answer_pro" type="checkbox">
+                                                                                Вопрос для специалистов
+                                                                            </label>
+                                                                        </div>
+                                                                        <div class="checkbox">
+                                                                            <label>
+                                                                                <input id="add_answer_other" name="add_answer_other" type="checkbox">
+                                                                                Может иметь пункт другое
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-4">
+                                                                        <div>RU</div>
+                                                                        <textarea rows="5" cols="35">hello</textarea>
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        <div>EN</div>
+                                                                        <textarea rows="5" cols="35">hello</textarea>
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        <div>UKR</div>
+                                                                        <textarea rows="5" cols="35">hello</textarea>
+                                                                    </div>
+                                                                </div>
+                                                            </fieldset>
+
+                                                        </form>
+
+                                                    </div>
+                                                    <div class="question_list"></div>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </fieldset>
+                    </form>
                 </section>
-                <h3>finish</h3>
+                <h3>Блок результата заказа</h3>
                 <section>
-                    <p>The next and previous buttons help you to navigate through your content.</p>
+                    <form class="form-horizontal">
+                        <fieldset>
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a data-toggle="tab" href="#add_ticket_tab_ru">Русский</a></li>
+                                <li><a data-toggle="tab" href="#add_ticket_tab_en">Английский</a></li>
+                                <li><a data-toggle="tab" href="#add_ticket_tab_ukr">Украинский</a></li>
+                            </ul>
+
+
+                            <div class="tab-content">
+                                <div id="add_ticket_tab_ru" class="tab-pane fade in active">
+                                    <!-- Text input-->
+                                    <div id="editor_ticket_ru"></div>
+
+                                </div>
+                                <div id="add_ticket_tab_en" class="tab-pane fade">
+                                    <!-- Text input-->
+                                    <div id="editor_ticket_en"></div>
+                                </div>
+                                <div id="add_ticket_tab_ukr" class="tab-pane fade">
+                                    <!-- Text input-->
+                                    <div id="editor_ticket_ukr"></div>
+
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
                 </section>
             </div>
 
@@ -74,3 +333,5 @@
     </div>
     <!-- /.modal-dialog -->
 </div>
+
+

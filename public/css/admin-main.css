@@ -158,5 +158,25 @@
 .wizard > .content
 {
 
-    min-height: 25em;
+    min-height: 30em;
+}
+
+.wizard > .content > .body ul {
+    list-style: none !important;
+}
+
+.fa-2
+{
+    font-size: 2em;
+    vertical-align: middle;
+    padding: 5px;
+    margin: 5px;
+}
+
+.wizard > .content > .body {
+    float: left;
+    position: absolute;
+    width: 100%;
+    height: 95%;
+    padding: 2.5%;
 }

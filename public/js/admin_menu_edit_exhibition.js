@@ -342,7 +342,7 @@ $(document).ready(function() {
 
             // календарь
 
-                 if (!editor_calendar_ru) {
+             if (!editor_calendar_ru) {
              editor_calendar_ru = CKEDITOR.appendTo('editor_calendar_ru');
              }
 
