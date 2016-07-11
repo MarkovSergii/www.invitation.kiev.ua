@@ -23,15 +23,12 @@
                     <td style="vertical-align: middle">{{this.name_ru}}</td>
                     <td style="vertical-align: middle"><span class="fa fa-calendar"></span>&nbsp;&nbsp;{{formatDate this.date_begin}} - {{formatDate this.date_end}}</td>
                     <td style="vertical-align: middle;text-align:center">
-                    {{#IFactive this.visible '1'}}  <span class="fa fa-check exhibition_visiable"></span> {{/IFactive}}
-                    {{#IFactive this.visible '0'}}  <span class="fa fa-ban exhibition_visiable"></span> {{/IFactive}}
+                    {{#IFactive this.visible '1'}}  <span ex_id ={{this.id}} class="fa fa-check exhibition_visiable"></span> {{/IFactive}}
+                    {{#IFactive this.visible '0'}}  <span ex_id ={{this.id}} class="fa fa-ban exhibition_visiable"></span> {{/IFactive}}
                     </td>
 
                     <td style="vertical-align: middle;text-align:center">
                         <span class="fa  fa-pencil exhibition_edit"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <span class="fa  fa-file-text-o  exhibition_view_edit"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <span class="fa  fa-question exhibition_question_edit"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <span class="fa  fa-barcode exhibition_result_edit"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <span class="fa  fa-trash-o exhibition_del"></span></td>
                 </tr>
                 {{/each }}
@@ -212,8 +209,8 @@
                                                     <span id="add_modal_new_question_btn"><i class="fa fa-plus-circle fa-2" aria-hidden="true"></i>Добавить</span>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <span id="save_new_question_btn" hidden><i class="fa fa-floppy-o fa-2" aria-hidden="true"></i>Сохранить</span>
-                                                    <span id="del_new_question_btn" hidden><i class="fa fa-minus-circle fa-2" aria-hidden="true"></i>Удалить</span>
+                                                    <span id="save_new_question_btn" hidden><i class="fa fa-floppy-o fa-2" aria-hidden="true"></i>Утвердить</span>
+                                                    <span id="del_new_question_btn" hidden><i class="fa fa-minus-circle fa-2" aria-hidden="true"></i>Отменить</span>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -246,6 +243,16 @@
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-md-3">
+
+                                                                            <label class="control-label" for="question_type">Тип</label>
+                                                                                <select id="question_type" name="question_type">
+                                                                                    <option value = "checkbox" >Checkbox</option>
+                                                                                    <option value = "radiobox" >Radiobox</option>
+                                                                                    <option value = "select" >Select</option>
+                                                                                    <option value = "text" >Text</option>
+                                                                                </select>
+
+
                                                                         <div class="checkbox">
                                                                             <label>
                                                                                 <input id="add_answer_req" name="add_answer_req" type="checkbox">
@@ -269,15 +276,15 @@
                                                                 <div class="row">
                                                                     <div class="col-md-4">
                                                                         <div>RU</div>
-                                                                        <textarea rows="5" cols="35">hello</textarea>
+                                                                        <textarea id="answer_area_ru" rows="4" cols="35"></textarea>
                                                                     </div>
                                                                     <div class="col-md-4">
                                                                         <div>EN</div>
-                                                                        <textarea rows="5" cols="35">hello</textarea>
+                                                                        <textarea id="answer_area_en" rows="4" cols="35"></textarea>
                                                                     </div>
                                                                     <div class="col-md-4">
                                                                         <div>UKR</div>
-                                                                        <textarea rows="5" cols="35">hello</textarea>
+                                                                        <textarea id="answer_area_ukr" rows="4" cols="35"></textarea>
                                                                     </div>
                                                                 </div>
                                                             </fieldset>
