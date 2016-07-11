@@ -13,6 +13,24 @@ var obj = {
             .catch(function(err){
                 callback(err)
             })
+    },
+    add_exhibition:function(exhib,callback) {
+        models.Exhibitions.create(exhib)
+            .then(function(new_exhib) {
+                callback(null,new_exhib)
+            })
+            .catch(function(err){
+                callback(err)
+            })
+    },
+    change_visibility:function(exhib,callback) {
+        models.Exhibitions.update(exhib,{where:{id:exhib.id}})
+            .then(function() {
+                callback(null)
+            })
+            .catch(function(err){
+                callback(err)
+            })
     }
 };
 
