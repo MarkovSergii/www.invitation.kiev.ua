@@ -248,11 +248,6 @@ var obj = {
         freezeTableName: true // Model tableName will be the same as the model name
     }),
 
-
-
-
-
-
     Settings : sequelize.define('settings', {
     name: {
         type: Sequelize.STRING
@@ -260,9 +255,61 @@ var obj = {
     value: {
         type: Sequelize.STRING
     }
-}, {
-    freezeTableName: true // Model tableName will be the same as the model name
-})
+    }, {
+        freezeTableName: true // Model tableName will be the same as the model name
+    }),
+    Questions : sequelize.define('questions', {
+        name_ru: {
+            type: Sequelize.STRING
+        },
+        name_en: {
+            type: Sequelize.STRING
+        },
+        name_ukr: {
+            type: Sequelize.STRING
+        },
+        exhibition_id: {
+            type: Sequelize.INTEGER
+        },
+        order_by: {
+            type: Sequelize.INTEGER
+        },
+        is_first: {
+            type: Sequelize.BOOLEAN
+        },
+        q_type: {
+            type: Sequelize.STRING
+        },
+        is_pro: {
+            type: Sequelize.BOOLEAN
+        },
+        have_other: {
+            type: Sequelize.BOOLEAN
+        }
+    }, {
+        freezeTableName: true // Model tableName will be the same as the model name
+    }),
+    Answers : sequelize.define('answers', {
+        name_ru: {
+            type: Sequelize.STRING
+        },
+        name_en: {
+            type: Sequelize.STRING
+        },
+        name_ukr: {
+            type: Sequelize.STRING
+        },
+        question_id: {
+            type: Sequelize.INTEGER
+        }
+    }, {
+        freezeTableName: true // Model tableName will be the same as the model name
+    })
+
+
+
+
+
 
 };
 
@@ -275,4 +322,7 @@ var obj = {
 //obj.Oblast.sync({force: true});
 //obj.City.sync({force: true});
 //obj.Exhibitions.sync({force: true});
+//obj.Questions.sync({force: true});
+//obj.Answers.sync({force: true});
+
 module.exports = obj;
