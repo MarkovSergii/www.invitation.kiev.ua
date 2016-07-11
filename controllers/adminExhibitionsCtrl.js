@@ -52,7 +52,11 @@ module.exports = function () {
                         one_question.is_pro = item.pro;
                         one_question.have_other = item.other;
                         one_question.is_first = 0;
-
+                        if ((item.other) && ((item.type=="checkbox") || (item.type=="radiobox")))
+                        {
+                            item.answers.push({ru:"Другое",en:"Other",ukr:"Інше"});
+                        }
+                        console.log(item);
                         QuestionModel.add_question(one_question, function (err, question) {
 
                             async.each(item.answers, function (item) {
