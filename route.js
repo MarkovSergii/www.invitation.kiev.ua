@@ -7,6 +7,7 @@ var passport =  require ('passport');
 var LocalStrategy  =  require ('passport-local');
 
 var adminRenderCtrl = require('./controllers/adminRenderCtrl')();
+var adminExhibitionsCtrl = require('./controllers/adminExhibitionsCtrl')();
 var userCtrl = require('./controllers/userCtrl')();
 var pageCtrl = require('./controllers/pageCtrl')();
 var menuCtrl = require('./controllers/menuCtrl')();
@@ -157,6 +158,9 @@ router.get('/admin/menu/other_settings',adminRenderCtrl.other_settings);
 
 // exhibitions
 router.get('/exhibition/:id',userCtrl.goToExhibition);
+router.post('/admin/exhibition/add',adminExhibitionsCtrl.add_exhibition);
+router.post('/admin/exhibition/:id/visibility',adminExhibitionsCtrl.change_visibility);
+
 
 // pages
 router.get('/admin/page/:id',pageCtrl.findPage);
