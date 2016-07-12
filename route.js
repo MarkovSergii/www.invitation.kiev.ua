@@ -125,6 +125,7 @@ router.get('/country',listCtrl.getCountries);
 router.get('/oblast',listCtrl.getOblasts);
 router.get('/city/:id',listCtrl.getCities);
 
+router.get('/is_auth',userCtrl.is_auth);
 
 
 //add user
@@ -157,7 +158,9 @@ router.get('/admin/menu/other_settings',adminRenderCtrl.other_settings);
 
 
 // exhibitions
+
 router.get('/exhibition/:id',userCtrl.goToExhibition);
+router.get('/exhibitions/:name/:id',userCtrl.OrderExhibition);
 router.post('/admin/exhibition/add',adminExhibitionsCtrl.add_exhibition);
 router.post('/admin/exhibition/:id/visibility',adminExhibitionsCtrl.change_visibility);
 

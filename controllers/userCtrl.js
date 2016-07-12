@@ -5,6 +5,7 @@
 var userModel = require('../models/userModel');
 var menuModel = require('../models/menuModel');
 var pageModel = require('../models/pageModel');
+var exhibitionModel = require('../models/exhibitionModel');
 var global_func = require('../own_modules/func');
 var dictionary = require('../own_modules/translations');
 var settingsModel = require('../models/settingsModel');
@@ -165,7 +166,48 @@ var get_full_page = function (req, res, page_id, callback) {
 
                 if (page_id==2)
                 {
-                    callback(null,{lang: languages, user: req.user, menu_items: menu1, content: "all exhibs",dictionary:dictionary(curent_lang)});
+
+                    var today = Date.now();
+                    var params = {
+                        $and:
+                            [
+                                {
+                                    'date_end':
+                                     {
+                                        '$gte': today
+                                     }
+                                },
+                                {
+                                    visible: true
+                                }
+                            ]
+                    };
+                   // var params = null;
+                    console.log(params);
+                    exhibitionModel.get_exhibition_list(params,function(err,data){
+                        // get exhibitions all blocks
+                        var ex_block = "";
+                        if (data.length == 0)
+                        {
+                            ex_block = 'no exhibitions';
+                            callback(null,{lang: languages, user: req.user, menu_items: menu1, content: ex_block,dictionary:dictionary(curent_lang)});
+                        }
+                        else
+                        {
+                            // generate content
+
+                            ex_block = '<div class="exhibition_calendar">';
+                            for (var j=0;j<data.length;j++)
+                            {
+                                ex_block = ex_block +'<a class="go_exhib" ex_name = "'+data[j]['name_'+curent_lang]+'"  ex_id = "'+data[j]['id']+'" href="/exhibitions/'+data[j]['name_'+curent_lang]+'/'+data[j]['id']+'"> <div class="exhibition_calendar_item">' + data[j]['content_'+curent_lang]+'</div></a>';
+                            }
+                            ex_block = ex_block+'</div>';
+                            callback(null,{lang: languages, user: req.user, menu_items: menu1, content: ex_block,dictionary:dictionary(curent_lang)});
+                        }
+
+                    });
+
+
                 }
 
                 else
@@ -415,6 +457,20 @@ module.exports  = function(){
                 data.content = content;
                 res.render('index',data);
             });
+        },
+        OrderExhibition:function(req,res){
+            get_main_template(req,res,function(err,data){
+
+                res.render('user_quering',{ex_id:req.params.id,ex_name:req.params.name},function(err,html){
+                    data.content = html;
+                    res.render('index',data);
+                });
+
+
+            });
+        },
+        is_auth:function(req,res){
+            res.send(req.isAuthenticated());
         },
         findUserByID: function (id,callback) {
 

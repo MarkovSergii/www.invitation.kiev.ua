@@ -2,6 +2,9 @@
  * Created by Markoff on 16.11.2015.
  */
 var curent_language;
+var go_to_exhib = 0;
+
+
 var find_translation = function(key,lang)
 {
     var found = false;
@@ -32,6 +35,7 @@ var change_menu_language_selector = function(lang_sh)
 };
 
 var go_to_exhib = 0;
+var go_to_exhib_name = "";
 
 $(document).ready(function(){
 
@@ -54,10 +58,15 @@ $(document).ready(function(){
     });
 
 
-    $('body').on("click",'.go_exhib',function(){
-        var exhib_id = $(this).attr('exhib_id');
+    $('body').on("click",'.go_exhib',function(e){
+        e.preventDefault();
+
+        var exhib_id = $(this).attr('ex_id');
+        var exhib_name = $(this).attr('ex_name');
+
         go_to_exhib = exhib_id;
-//        alert($(this).attr('exhib_id'));
+        go_to_exhib_name = exhib_name;
+
 
         $.get('/is_auth/',function(data)
         {
@@ -65,7 +74,7 @@ $(document).ready(function(){
             if (data)
             {
                 // перейти на страницу заказа приглоса
-                window.location = '/user/exhibition/'+exhib_id;
+                window.location = '/exhibitions/'+exhib_name+'/'+exhib_id;
             }
             else
             {

@@ -9,13 +9,12 @@ var async = require('async');
 module.exports = function () {
 
     var task = {
-        get_exhibition_list: function (callback) {
-            ExhibitionModel.get_exhibition_list(null, function (err, data) {
+        get_exhibition_list: function (params,callback) {
+            ExhibitionModel.get_exhibition_list(params, function (err, data) {
                 callback(err, data)
             })
         },
         get_exhibition_visible_list: function (callback) {
-
             ExhibitionModel.get_exhibition_list({visible: true}, function (err, data) {
                 callback(err, data)
             })
