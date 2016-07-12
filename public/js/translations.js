@@ -169,6 +169,24 @@ var global_translation = [
         "lang_ukr": "Смена пароля"
     },
     {
+        "id": "yes",
+        "lang_ru": "Да",
+        "lang_en": "Yes",
+        "lang_ukr": "Так"
+    },
+    {
+        "id": "no",
+        "lang_ru": "Нет",
+        "lang_en": "No",
+        "lang_ukr": "Ні"
+    },
+    {
+        "id": "question_btn_next",
+        "lang_ru": "Далее",
+        "lang_en": "Next",
+        "lang_ukr": "Далі"
+    },
+    {
         "id": "email_forgot_page_text2",
         "lang_ru": "Пароль должен быть более 6 знаков и содержать только буквы и цыфры",
         "lang_en": "Пароль должен быть более 6 знаков и содержать только буквы и цыфры",

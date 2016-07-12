@@ -40,7 +40,7 @@ module.exports  = function(){
         },
         menu_calendar:function(req,res){
 
-            adminExhibitionsCtrl.get_exhibition_list(function(err,data) {
+            adminExhibitionsCtrl.get_exhibition_list(null,function(err,data) {
 
                 res.render('admin_menu_exhibitions',{exhibition:data},function(err,html){
 

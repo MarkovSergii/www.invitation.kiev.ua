@@ -10,7 +10,9 @@ module.exports = function () {
 
     var task = {
         get_exhibition_list: function (params,callback) {
+
             ExhibitionModel.get_exhibition_list(params, function (err, data) {
+
                 callback(err, data)
             })
         },
@@ -19,10 +21,28 @@ module.exports = function () {
                 callback(err, data)
             })
         },
+        ExhibitionQuestions:function(req,res)
+        {
+            ExhibitionModel.ExhibitionQuestions(req.params.id, function (err, data) {
+              //  if (err) res.send({err:err});
+                res.send({err:err,data:data})
+            })
+        },
         change_visibility:function(req,res)
         {
             var exhib = {};
-            exhib.visible = !req.body.curent_visible_state;
+
+            if (req.body.curent_status == 'true')
+            {
+                exhib.visible = false
+            }
+            else
+            {
+                exhib.visible = true;
+            }
+
+          //  console.log(exhib.visible);
+
             exhib.id = req.params.id;
 
             ExhibitionModel.change_visibility(exhib,function(err){
@@ -51,12 +71,14 @@ module.exports = function () {
                         one_question.is_pro = item.pro;
                         one_question.have_other = item.other;
                         one_question.is_first = 0;
-                        if ((item.other) && ((item.type=="checkbox") || (item.type=="radiobox")))
-                        {
-                            item.answers.push({ru:"Другое",en:"Other",ukr:"Інше"});
-                        }
-                        console.log(item);
+
+                      //  console.log(item);
+
                         QuestionModel.add_question(one_question, function (err, question) {
+                            if ((item.other) && ((item.type=="checkbox") || (item.type=="radiobox")))
+                            {
+                                item.answers.push({ru:"Другое",en:"Other",ukr:"Інше"});
+                            }
 
                             async.each(item.answers, function (item) {
 

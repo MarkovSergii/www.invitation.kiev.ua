@@ -72,7 +72,7 @@ function Exhibition() {
     };
     this.change_visibility = function (elem,ex_id,curent_status) {
 
-        $.post('/admin/exhibition/'+ex_id+'/visibility',curent_status,function(data){
+        $.post('/admin/exhibition/'+ex_id+'/visibility',{curent_status:curent_status},function(data){
             if (data.err)
             {
                 swal({

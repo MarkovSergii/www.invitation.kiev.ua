@@ -160,6 +160,7 @@ router.get('/admin/menu/other_settings',adminRenderCtrl.other_settings);
 // exhibitions
 
 router.get('/exhibition/:id',userCtrl.goToExhibition);
+router.get('/exhibition/:id/questions',adminExhibitionsCtrl.ExhibitionQuestions);
 router.get('/exhibitions/:name/:id',userCtrl.OrderExhibition);
 router.post('/admin/exhibition/add',adminExhibitionsCtrl.add_exhibition);
 router.post('/admin/exhibition/:id/visibility',adminExhibitionsCtrl.change_visibility);
