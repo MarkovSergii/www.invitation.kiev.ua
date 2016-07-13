@@ -38,6 +38,8 @@ function Exhibition() {
     var editor_ticket_ru, editor_ticket_en, editor_ticket_ukr;
 
     this.question_list = [];
+    this.update_question_id = 0;
+    this.question_mode = 'add';
 
     this.editor_calendar_init = function () {
         if (!editor_calendar_ru) {
@@ -265,12 +267,6 @@ function Exhibition() {
         }
         return !err;
     };
-    this.show_edit_form = function (id) {
-
-    };
-    this.hide_edit_form = function (id) {
-
-    };
     this.add_exhib = function () {
 
 
@@ -326,16 +322,25 @@ function Exhibition() {
 
 
     };
-    this.save_exhib = function (edited_exhib) {
-
-    };
-    this.delete = function (id) {
-
-    };
     this.try_add_question = function () {
         // clear fields
+        $('#add_answer_ru').val("");
+        $('#add_answer_en').val("");
+        $('#add_answer_ukr').val("");
+
+        $('#answer_area_ru').val("");
+        $('#answer_area_en').val("");
+        $('#answer_area_ukr').val("");
+
+        $('#add_answer_req').prop('checked',false);
+        $('#add_answer_pro').prop('checked',false);
+        $('#add_answer_other').prop('checked',false);
+
+
+
 
         // show mega panel
+        that.question_mode = 'add';
         $('#save_new_question_btn').show();
         $('#del_new_question_btn').show();
         $('.question_add_panel').show();
@@ -346,14 +351,79 @@ function Exhibition() {
         $('#del_new_question_btn').hide();
         $('.question_add_panel').hide();
     };
+    this.load_question_panel = function (question_id) {
+        for (var i=0;i<that.question_list.length;i++)
+        {
+            if (that.question_list[i].id == question_id)
+            {
+                $('#add_answer_ru').val(that.question_list[i].ru);
+                $('#add_answer_en').val(that.question_list[i].en);
+                $('#add_answer_ukr').val(that.question_list[i].ukr);
+
+
+
+                $('#answer_area_ru').val(that.question_list[i].answers.map(function(item){ return item.ru }).join('\n'));
+                $('#answer_area_en').val(that.question_list[i].answers.map(function(item){ return item.en }).join('\n'));
+                $('#answer_area_ukr').val(that.question_list[i].answers.map(function(item){ return item.ukr }).join('\n'));
+
+                $('#add_answer_req').prop('checked',that.question_list[i].required);
+                $('#add_answer_pro').prop('checked',that.question_list[i].pro);
+                $('#add_answer_other').prop('checked',that.question_list[i].other);
+
+                $('#question_type').val(that.question_list[i].type);
+            }
+        }
+    };
     this.render_all_question = function () {
        //show all questions
+
+        var edit_sub = function(){
+            //var id = $(this).attr('sub_q');
+            that.update_question_id = $(this).attr('sub_q');
+            that.question_mode = 'edit';
+            // load needed data to panel
+            that.load_question_panel(that.update_question_id);
+            // show panel
+            $('#save_new_question_btn').show();
+            $('#del_new_question_btn').show();
+            $('.question_add_panel').show();
+        };
+
+
         $('.question_list').html('');
         this.question_list.forEach(function(item){
-            var elem = $('<div></div>').text(item.name);
-            $('.question_list').append(elem);
+
+            var root_div = $('<div></div>');
+
+            var elem = $('<div style="display:inline-block;padding-right: 10px"></div>').text(item.name);
+            var div_elem = $('<div style="display:inline-block"></div>').text('edit').attr('sub_q',item.id).click(edit_sub);
+
+            root_div.append(elem);
+            root_div.append(div_elem);
+
+            $('.question_list').append(root_div);
+          //  $('.question_list').append(div_elem);
         });
 
+
+
+
+    };
+    this.update_question = function(question,update_question_id)
+    {
+        for (var i=0;i<that.question_list.length;i++)
+        {
+            if (that.question_list[i].id == update_question_id)
+            {
+                that.question_list[i] = new Question(question);
+                that.question_list[i].id = update_question_id;
+                that.question_list[i].oreder_by = update_question_id;
+            }
+        }
+        $('#save_new_question_btn').hide();
+        $('#del_new_question_btn').hide();
+        $('.question_add_panel').hide();
+        this.render_all_question();
     };
     this.add_question = function (question) {
 
@@ -394,8 +464,37 @@ $(document).ready(function () {
         var en_lines =  $('#answer_area_en').val().split(/\r*\n/);
         var ukr_lines =  $('#answer_area_ukr').val().split(/\r*\n/);
 
+        var combo_text = ($('#question_type').val() == 'text') ? true : false;
+        var q_error = false;
 
-        if (($('#add_answer_ru').val()=="") || ($('#add_answer_en').val()=="") || ($('#add_answer_ukr').val()=="") || (ru_lines.length==1) || (ru_lines.length != en_lines.length) || (ru_lines.length != ukr_lines.length) || (ukr_lines.length != en_lines.length))
+
+        if (combo_text)
+        {
+            if (($('#add_answer_ru').val()=="") || ($('#add_answer_en').val()=="") || ($('#add_answer_ukr').val()==""))
+            {
+                q_error = true;
+            }
+            else
+            {
+                q_error = false;
+            }
+        }
+        else
+        {
+            if (($('#add_answer_ru').val()=="") || ($('#add_answer_en').val()=="") || ($('#add_answer_ukr').val()=="") || (ru_lines.length==1) || (ru_lines.length != en_lines.length) || (ru_lines.length != ukr_lines.length) || (ukr_lines.length != en_lines.length))
+            {
+                q_error = true;
+            }
+            else
+            {
+                q_error = false;
+            }
+        }
+
+
+
+
+        if (q_error)
         {
             swal({
                 title: "Ошибка",
@@ -423,7 +522,16 @@ $(document).ready(function () {
          //   console.log(question);
 
 
-            exhib.add_question(question);
+            if (exhib.question_mode == 'add')
+            {
+                exhib.add_question(question);
+            }
+            else
+            {
+                exhib.update_question(question,exhib.update_question_id);
+
+            }
+
         }
 
     });

@@ -29,12 +29,11 @@ var obj = {
     ExhibitionQuestions:function(ex_id,callback1) {
         var qq = [];
 
-        models.Questions.findAll({where:{exhibition_id:ex_id}})
+        models.Questions.findAll({where:{exhibition_id:ex_id},order:'order_by'})
             .then(function(questions) {
 
                 async.each(questions,function(quest,callback){
                     var q ={};
-                    console.log("1");
                     q.id = quest.id;
                     q.name_ru = quest.name_ru;
                     q.name_en = quest.name_en;

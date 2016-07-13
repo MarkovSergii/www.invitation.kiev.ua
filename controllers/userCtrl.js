@@ -5,6 +5,8 @@
 var userModel = require('../models/userModel');
 var menuModel = require('../models/menuModel');
 var pageModel = require('../models/pageModel');
+var users_ordersModel = require('../models/users_ordersModel');
+
 var exhibitionModel = require('../models/exhibitionModel');
 var global_func = require('../own_modules/func');
 var dictionary = require('../own_modules/translations');
@@ -185,7 +187,7 @@ var get_full_page = function (req, res, page_id, callback) {
                             ]
                     };
                    // var params = null;
-                    console.log(params);
+                  //  console.log(params);
                     exhibitionModel.get_exhibition_list(params,function(err,data){
                         // get exhibitions all blocks
                         var ex_block = "";
@@ -463,13 +465,54 @@ module.exports  = function(){
                 res.render('index',data);
             });
         },
-        OrderExhibition:function(req,res){
-            get_main_template(req,res,function(err,data){
+        userDetails:function(req,res)
+        {
+            get_main_template(req,res,function(err,data) {
 
-                res.render('user_quering',{ex_id:req.params.id,ex_name:req.params.name},function(err,html){
+                res.render('user_cab',function(err,html){
                     data.content = html;
                     res.render('index',data);
                 });
+            });
+        },
+        CreateOrder:function(req,res){
+           // insert into users_orders
+           // insert into users_answers
+           // generate id and barcode
+           // send it to user
+        },
+        OrderExhibition:function(req,res){
+            get_main_template(req,res,function(err,data){
+
+
+                //check if user have order it this exhibition
+                users_ordersModel.check_order_exists({user_id:req.user.id,exhibition_id:req.params.id},function(err,result)
+                {
+
+                    if (err)
+                    {
+                            data.content = "Error";
+                            res.render('index',data);
+                    }
+                    else
+                    {
+                        //if have record in users_orders
+
+                        if (result != null)
+                        {
+                            res.redirect(302,'/user/details#orders');
+                        }
+                        else
+                        {
+                            //if dont then go
+                            res.render('user_quering',{ex_id:req.params.id,ex_name:req.params.name},function(err,html){
+                                data.content = html;
+                                res.render('index',data);
+                            });
+                        }
+                    }
+                });
+;
 
 
             });
