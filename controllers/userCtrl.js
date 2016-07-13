@@ -167,7 +167,9 @@ var get_full_page = function (req, res, page_id, callback) {
                 if (page_id==2)
                 {
 
-                    var today = Date.now();
+                  //  var today = Date.now();
+                    var today = new Date;
+                    today.setHours(0, 0, 0, 0);
                     var params = {
                         $and:
                             [
@@ -199,7 +201,10 @@ var get_full_page = function (req, res, page_id, callback) {
                             ex_block = '<div class="exhibition_calendar">';
                             for (var j=0;j<data.length;j++)
                             {
-                                ex_block = ex_block +'<a class="go_exhib" ex_name = "'+data[j]['name_'+curent_lang]+'"  ex_id = "'+data[j]['id']+'" href="/exhibitions/'+data[j]['name_'+curent_lang]+'/'+data[j]['id']+'"> <div class="exhibition_calendar_item">' + data[j]['content_'+curent_lang]+'</div></a>';
+                                ex_block = ex_block +'<a class="go_exhib" ex_name = "'+data[j]['name_'+curent_lang]+'"  ex_id = "'+data[j]['id']+'" href="/user/exhibitions/'+data[j]['name_'+curent_lang]+'/'+data[j]['id']+'"> <div class="exhibition_calendar_item">'
+                                +'<div class="exhib_name">'+data[j]['name_'+curent_lang]+'</div>'
+
+                                + data[j]['content_'+curent_lang]+'</div></a>';
                             }
                             ex_block = ex_block+'</div>';
                             callback(null,{lang: languages, user: req.user, menu_items: menu1, content: ex_block,dictionary:dictionary(curent_lang)});

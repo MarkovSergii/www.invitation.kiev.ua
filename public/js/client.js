@@ -74,7 +74,7 @@ $(document).ready(function(){
             if (data)
             {
                 // перейти на страницу заказа приглоса
-                window.location = '/exhibitions/'+exhib_name+'/'+exhib_id;
+                window.location = '/user/exhibitions/'+exhib_name+'/'+exhib_id;
             }
             else
             {

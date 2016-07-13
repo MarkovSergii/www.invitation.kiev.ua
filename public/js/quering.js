@@ -53,7 +53,7 @@ function Order_invit (ex_id)
     };
     this.get_all_questions = function()
     {
-        $.get('/exhibition/'+that.ex_id+'/questions',function(data){
+        $.get('/user/exhibition/'+that.ex_id+'/questions',function(data){
             that.all_questions = that.transform_questionst(data.data);
             console.log(that.all_questions);
             that.show_first_question();

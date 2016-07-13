@@ -58,7 +58,7 @@ $(document).ready(function() {
                 $('#login_modal').modal('hide');
                 if (go_to_exhib != 0)
                 {
-                    window.location = '/exhibitions/'+go_to_exhib_name+'/'+go_to_exhib;
+                    window.location = '/user/exhibitions/'+go_to_exhib_name+'/'+go_to_exhib;
                }
                 else
                 {
@@ -73,7 +73,7 @@ $(document).ready(function() {
                    // console.log(textStatus);
                     if (go_to_exhib != 0)
                     {
-                        window.location = '/exhibitions/'+go_to_exhib_name+'/'+go_to_exhib;
+                        window.location = '/user/exhibitions/'+go_to_exhib_name+'/'+go_to_exhib;
                     }
                     else
                     {
