@@ -304,12 +304,39 @@ var obj = {
         }
     }, {
         freezeTableName: true // Model tableName will be the same as the model name
+    }),
+    Users_orders : sequelize.define('users_orders', {
+        user_id: {
+            type: Sequelize.INTEGER
+        },
+        exhibition_id: {
+            type: Sequelize.INTEGER
+        }
+    }, {
+        freezeTableName: true // Model tableName will be the same as the model name
+    }),
+    Users_answers : sequelize.define('users_answers', {
+        user_id: {
+            type: Sequelize.INTEGER
+        },
+        exhibition_id: {
+            type: Sequelize.INTEGER
+        },
+        question_id: {
+            type: Sequelize.INTEGER
+        },
+        value: {
+            type: Sequelize.STRING
+        },
+        text_value: {
+            type: Sequelize.STRING
+        }
+
+
+
+    }, {
+        freezeTableName: true // Model tableName will be the same as the model name
     })
-
-
-
-
-
 
 };
 
@@ -324,5 +351,8 @@ var obj = {
 //obj.Exhibitions.sync({force: true});
 //obj.Questions.sync({force: true});
 //obj.Answers.sync({force: true});
+//obj.Users_orders.sync({force: true});
+//obj.Users_answers.sync({force: true});
+
 
 module.exports = obj;
