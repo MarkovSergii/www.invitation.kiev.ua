@@ -158,10 +158,13 @@ router.get('/admin/menu/other_settings',adminRenderCtrl.other_settings);
 
 
 // exhibitions
-
+router.get('/user/details',userCtrl.userDetails);
+router.get('/user/exhibitions/create_order',userCtrl.CreateOrder);
 router.get('/user/exhibition/:id',userCtrl.goToExhibition);
 router.get('/user/exhibition/:id/questions',adminExhibitionsCtrl.ExhibitionQuestions);
 router.get('/user/exhibitions/:name/:id',userCtrl.OrderExhibition);
+
+
 
 router.post('/admin/exhibition/add',adminExhibitionsCtrl.add_exhibition);
 router.post('/admin/exhibition/:id/visibility',adminExhibitionsCtrl.change_visibility);
