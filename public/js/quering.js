@@ -112,7 +112,7 @@ function Order_invit (ex_id)
     this.show_only_basic_question = function()
     {
         var pro = that.all_questions.filter(function(obj){
-            if (obj.is_pro) return true
+            if ((!obj.is_pro) && (!obj.is_first)) return true
         });
 
         var q1 = $('#query_block').createQuiz({
