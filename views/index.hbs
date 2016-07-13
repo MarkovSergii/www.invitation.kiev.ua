@@ -21,102 +21,108 @@
 <body>
 <div>
     <div class="row">
-        <div class="col-md-12 col-sm-12">
-            <div class="bs-example">
-                <nav class="navbar navbar-default">
-                    <div class="container-fluid">
-                        <!-- Brand and toggle get grouped for better mobile display -->
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                                <span class="sr-only"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                            <div><a class="navbar-brand" href="#"><img src="/images/kmkya_logo.png" style="width: 100%;"></a></div>
-                        </div>
-
-                        <!-- Collect the nav links, forms, and other content for toggling -->
-                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                            <ul class="nav navbar-nav">
+        <div class="container">
+        <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
 
 
-                                {{#each menu_items}}
+                    {{#each menu_items}}
 
-                                    {{#if this.subs}}
-                                        <li class="dropdown " >
-                                            <a href="{{this.link}}" class="dropdown-toggle page_item {{#IFactive this.isactive true}} active_item {{/IFactive}}" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{this.name}}<span class="caret"></span></a>
-                                            <ul class="dropdown-menu">
-                                                {{#each this.subs}}
-                                                    <li ><a class="page_item" href="{{this.link}}" >{{this.name}}</a></li>
-                                                {{/each}}
+                        {{#if this.subs}}
+                            <li class="dropdown " >
+                                <a href="{{this.link}}" class="dropdown-toggle page_item {{#IFactive this.isactive true}} active_item {{/IFactive}}" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{this.name}}<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    {{#each this.subs}}
+                                        <li ><a class="page_item" href="{{this.link}}" >{{this.name}}</a></li>
+                                    {{/each}}
 
-                                            </ul>
-                                        </li>
-                                    {{else}}
+                                </ul>
+                            </li>
+                        {{else}}
 
-                                        <li > <a href="{{this.link}}" class="page_item {{#IFactive this.isactive true}} active_item {{/IFactive}}" > {{this.name}}</a></li>
+                            <li > <a href="{{this.link}}" class="page_item {{#IFactive this.isactive true}} active_item {{/IFactive}}" > {{this.name}}</a></li>
 
-                                    {{/if}}
+                        {{/if}}
 
-                                {{/each}}
+                    {{/each}}
 
-                            </ul>
-
-                            <ul class="nav navbar-nav navbar-right">
+                </ul>
 
 
-                                <li>
-                                    <a href="#">
-                                        <select id="lang" class="form-control">
-                                            {{#each lang}}
-                                                <option value=  "{{this.name}}"  >{{this.name}}</option>
-                                            {{/each}}
-                                        </select>
-                                    </a>
+                <select id="lang" class="form-control lang_block">
+                    {{#each lang}}
+                        <option value=  "{{this.name}}"  >{{this.name}}</option>
+                    {{/each}}
+                </select>
 
-                                </li>
-                                {{#if user}}
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user">&nbsp;</span>{{user.first_name}}&nbsp;{{user.last_name}} &nbsp;&nbsp;<strong class="caret"></strong></a>
-                                        <ul class="dropdown-menu">
-                                            <li>
-                                                <a href="/invit" class="get_ticket">{{dictionary.get_invit}}</a>
-                                            </li>
-                                            <li>
-                                                <a href="/user" class="user_detail">{{dictionary.edit_profile}}</a>
-                                            </li>
-                                            {{#IFactive user.role 'admin'}}
-                                                <li class="divider">
-                                                </li>
-                                                <li>
-                                                    <a href="/admin" class="admin_page">{{dictionary.admin_area}}</a>
-                                                </li>
-                                            {{/IFactive}}
-
-                                            <li class="divider">
-                                            </li>
-                                            <li>
-                                                <a class="logout" href="/logout">{{dictionary.loguot}}</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                {{else}}
-
-                                    <li>
-                                        <a data-toggle="modal" href="#auth_login_modal"  class = "login_page" ><span class="glyphicon glyphicon-user"></span> {{dictionary.login}}&nbsp;&nbsp;&nbsp;</a>
-                                    </li>
-                                {{/if}}
-
-                            </ul>
-                        </div><!-- /.navbar-collapse -->
-                    </div><!-- /.container-fluid -->
-                </nav>
+            </div><!-- /.navbar-collapse -->
+        </div>
+    </div>
+    <div class="row header_block">
+        <div class="container">
+            <div class="col-md-12 col-sm-12">
+                <div class="bs-example">
+                    <nav class="navbar navbar-default">
+                        <div class="container-fluid">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                    <span class="sr-only"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <div class="col-md-5 text-right slogan_block_left"><span style="font-size: 1.5em;">On-Line регистрация<br> посетителей выставок</span><br> заказ электронных пригласительных</div>
+                                <div class="col-md-2 col-xs-4 slogan_block_center"><a class="navbar-brand" href="#"><img src="/images/kmkya_logo.png"></a></div>
+                                <div class="col-md-5 col-xs-8 text-left slogan_block_right"><span style="font-size: 1.5em"> Киевский международный <br>контрактовый ярмарок </span><br> лидер выставочного бизнеса</div>
+                            </div>
+                        </div><!-- /.container-fluid -->
+                    </nav>
+                </div>
             </div>
         </div>
     </div>
-    <div id = "content">
-        {{{content}}}
+    <div class="container">
+        <div id = "content" class="col-md-9 col-sm-12 col-lg-9">
+            {{{content}}}
+        </div>
+        <div class="col-md-3 col-sm-12 col-lg-3 user_menu_block">
+            <ul class="nav navbar-nav navbar-right">
+                {{#if user}}
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user">&nbsp;</span>{{user.first_name}}&nbsp;{{user.last_name}} &nbsp;&nbsp;<strong class="caret"></strong></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="/invit" class="get_ticket">{{dictionary.get_invit}}</a>
+                            </li>
+                            <li>
+                                <a href="/user" class="user_detail">{{dictionary.edit_profile}}</a>
+                            </li>
+                            {{#IFactive user.role 'admin'}}
+                                <li class="divider">
+                                </li>
+                                <li>
+                                    <a href="/admin" class="admin_page">{{dictionary.admin_area}}</a>
+                                </li>
+                            {{/IFactive}}
+
+                            <li class="divider">
+                            </li>
+                            <li>
+                                <a class="logout" href="/logout">{{dictionary.loguot}}</a>
+                            </li>
+                        </ul>
+                    </li>
+                {{else}}
+
+                    <li>
+                        <a data-toggle="modal" href="#auth_login_modal"  class = "login_page" ><span class="glyphicon glyphicon-user"></span> {{dictionary.login}}&nbsp;&nbsp;&nbsp;</a>
+                    </li>
+                {{/if}}
+
+            </ul>
+        </div>
     </div>
 </div>
 

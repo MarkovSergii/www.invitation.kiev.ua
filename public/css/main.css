@@ -34,14 +34,14 @@ and (max-device-width : 480px) {
 a.active_item,
 a.active_item :hover
 {
-    background-color: #dddddd;
+    background-color: #efefef;
     color: #3c3c3c !important;
-    border-bottom: 5px solid #914B14;
+//    border-top: 5px solid #914B14;
 }
 
 .page_item:hover
 {
-    background-color: #dddddd !important;
+    background-color: ##efefef !important;
 }
 
 .dropdown a
@@ -60,8 +60,45 @@ a.active_item :hover
 #content
 {
     padding: 0 15px;
+    border-right: 1px solid #DBDBDB;
+    margin: 30px 0;
 }
 .dropdown-menu > li > a:hover
 {
     color: #914B14;
+}
+
+.user_menu_block
+{
+    padding-top: 30px;
+}
+
+.header_block
+{
+// background-color: #f8f8f8;
+// border-color: #e7e7e7;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#203b9c+25,101d4e+100 */
+    background: #203b9c; /* Old browsers */
+    background: -moz-radial-gradient(bottom, ellipse cover,  #203b9c 25%, #101d4e 100%); /* FF3.6-15 */
+    background: -webkit-radial-gradient(bottom, ellipse cover,  #203b9c 25%,#101d4e 100%); /* Chrome10-25,Safari5.1-6 */
+    background: radial-gradient(ellipse at bottom,  #203b9c 25%,#101d4e 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#203b9c', endColorstr='#101d4e',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.lang_block
+{
+    width: 60px;
+    float: right;
+}
+.slogan_block_left,
+.slogan_block_right
+{
+    font-size: 1em;
+    color: #fff;
+    vertical-align: middle;
+}
+
+.navbar-header
+{
+    width: 100%;
 }

@@ -1223,8 +1223,8 @@ h2,
 .h2,
 h3,
 .h3 {
-  margin-top: 20px;
-  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 h1 small,
 .h1 small,
@@ -1265,19 +1265,19 @@ h6 .small,
 }
 h1,
 .h1 {
-  font-size: 36px;
+  font-size: 26px;
 }
 h2,
 .h2 {
-  font-size: 30px;
+  font-size: 24px;
 }
 h3,
 .h3 {
-  font-size: 24px;
+  font-size: 20px;
 }
 h4,
 .h4 {
-  font-size: 18px;
+  font-size: 16px;
 }
 h5,
 .h5 {
@@ -2550,15 +2550,16 @@ output {
 .form-control {
   display: block;
   width: 100%;
-  height: 34px;
+  height: 30px;
   padding: 6px 12px;
+  margin: 15px 0;
   font-size: 14px;
   line-height: 1.42857143;
   color: #555;
   background-color: #fff;
   background-image: none;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  //border-radius: 4px;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
   -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
@@ -3582,7 +3583,7 @@ tbody.collapse.in {
   font-size: 14px;
   text-align: left;
   list-style: none;
-  background-color: #dddddd;
+  background-color: #efefef;
   -webkit-background-clip: padding-box;
           background-clip: padding-box;
  // border: 1px solid #ccc;
@@ -4049,8 +4050,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav .open > a,
 .nav .open > a:hover,
 .nav .open > a:focus {
-  background-color: #ddd;
-  border-bottom: 5px solid grey;
+  background-color: #efefef;
+//  border-bottom: 5px solid grey;
 }
 .nav .nav-divider {
   height: 1px;
@@ -4212,7 +4213,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar {
   position: relative;
   min-height: 50px;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   border: 1px solid transparent;
 }
 @media (min-width: 768px) {
@@ -4227,7 +4228,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-collapse {
   padding-right: 15px;
-  padding-left: 15px;
+  padding-left: 0px;
   overflow-x: visible;
   -webkit-overflow-scrolling: touch;
   border-top: 1px solid transparent;
@@ -4399,7 +4400,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 @media (min-width: 768px) {
   .navbar-nav {
     float: left;
-    margin: 0 0 0 20px;
+    margin: 10px 0 10px 0px;
   }
   .navbar-nav > li {
     float: left;
@@ -4541,14 +4542,6 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-default {
- // background-color: #f8f8f8;
- // border-color: #e7e7e7;
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#203b9c+25,101d4e+100 */
-  background: #203b9c; /* Old browsers */
-  background: -moz-radial-gradient(bottom, ellipse cover,  #203b9c 25%, #101d4e 100%); /* FF3.6-15 */
-  background: -webkit-radial-gradient(bottom, ellipse cover,  #203b9c 25%,#101d4e 100%); /* Chrome10-25,Safari5.1-6 */
-  background: radial-gradient(ellipse at bottom,  #203b9c 25%,#101d4e 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#203b9c', endColorstr='#101d4e',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 
 }
 .navbar-default .navbar-brand {
@@ -4565,10 +4558,10 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-default .navbar-nav > li > a {
   color: #E0DBD4;
 }
-.navbar-default .navbar-nav > li > a:hover {
+.navbar-nav > li > a:hover {
   color: #333;
   background-color: transparent;
-  border-bottom: 5px solid grey;
+ // border-top: 5px solid grey;
 }
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
