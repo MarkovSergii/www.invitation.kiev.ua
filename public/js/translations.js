@@ -401,16 +401,19 @@ var global_translation = [
         "lang_ru": "Выйти",
         "lang_en": "loguot",
         "lang_ukr": "Вийти"
+    },
+    {
+        "id": "slogan_registration",
+        "lang_ru": "<span style=/'font-size: 1.5em;/'>On-Line регистрация<br> посетителей выставок</span><br> заказ электронных пригласительных",
+        "lang_en": "<span style=/'font-size: 1.5em;/'>On-Line registration</span><br> get a free invitation ticket",
+        "lang_ukr": "<span style=/'font-size: 1.5em;/'>On-Line реєстрація<br> відвідувачів виставок</span><br> замовлення электронних запрошень"
+    },
+    {
+        "id": "slogan_kmkya",
+        "lang_ru": "<span style=/'font-size: 1.5em/'> Киевский международный <br>контрактовый ярмарок </span><br> лидер выставочного бизнеса",
+        "lang_en": "<span style=/'font-size: 1.5em/'> Kyiv International Contract Fair, Ltd </span><br> The leader of exhibition business in Ukraine",
+        "lang_ukr": "<span style=/'font-size: 1.5em/'> Київський міжнародний <br>контрактовий ярмарок </span><br> лідер виставочного бізнесу"
     }
-
-
-
-
-
-
-
-
-
 
 
 ]
