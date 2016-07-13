@@ -132,7 +132,7 @@ function Order_invit (ex_id)
             if (!obj.is_first) return true
         });
 
-        var q1 = $('#query_block').createQuiz({
+        $('#query_block').createQuiz({
             data:all,
             submitButton:true,
             submitFunction:that.send_result,
@@ -145,7 +145,7 @@ function Order_invit (ex_id)
     };
     this.send_result = function()
     {
-
+        console.log(this.getValues());
     };
     this.show_ticket = function()
     {
