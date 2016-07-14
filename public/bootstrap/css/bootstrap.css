@@ -1102,8 +1102,8 @@ a {
 }
 a:hover,
 a:focus {
-  color: #23527c;
-  text-decoration: underline;
+  color: #075092;
+ // text-decoration: underline;
 }
 a:focus {
   outline: thin dotted;
@@ -3596,7 +3596,8 @@ tbody.collapse.in {
   right: 0;
   left: auto;
 }
-.dropdown-menu .divider {
+.dropdown-menu .divider
+{
   height: 1px;
   margin: 9px 0;
   overflow: hidden;

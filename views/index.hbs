@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head lang="en">
     <meta charset="UTF-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -87,11 +87,11 @@
             {{{content}}}
         </div>
         <div class="col-md-3 col-sm-12 col-lg-3 user_menu_block">
-            <ul class="nav navbar-nav navbar-right">
+
                 {{#if user}}
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user">&nbsp;</span>{{user.first_name}}&nbsp;{{user.last_name}} &nbsp;&nbsp;<strong class="caret"></strong></a>
-                        <ul class="dropdown-menu">
+                    <div class="nav navbar-nav navbar-right">
+                        Здравствуйте, <span style="font-weight: bold;">{{user.first_name}}&nbsp;{{user.last_name}}</span>
+                        <ul class="user_menu">
                             <li>
                                 <a href="/invit" class="get_ticket">{{dictionary.get_invit}}</a>
                             </li>
@@ -112,15 +112,15 @@
                                 <a class="logout" href="/logout">{{dictionary.loguot}}</a>
                             </li>
                         </ul>
-                    </li>
+                </div>
                 {{else}}
 
-                    <li>
-                        <a data-toggle="modal" href="#auth_login_modal"  class = "login_page" ><span class="glyphicon glyphicon-user"></span> {{dictionary.login}}&nbsp;&nbsp;&nbsp;</a>
-                    </li>
+                    <div class="login_block">
+                       <p>Чтобы заказать пригласительный, вам необходимо зайти в личный кабинет </p><p class="text-center"><a data-toggle="modal" href="#auth_login_modal"  class = "login_page" ><span class="glyphicon glyphicon-user"></span> {{dictionary.login}}&nbsp;&nbsp;&nbsp;</a></p>
+                    </div>
                 {{/if}}
 
-            </ul>
+
         </div>
     </div>
 </div>

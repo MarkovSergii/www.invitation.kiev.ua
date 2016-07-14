@@ -68,11 +68,6 @@ a.active_item :hover
     color: #914B14;
 }
 
-.user_menu_block
-{
-    padding-top: 30px;
-}
-
 .header_block
 {
 // background-color: #f8f8f8;
@@ -89,6 +84,7 @@ a.active_item :hover
 {
     width: 65px;
     float: right;
+    margin: 10px 0 20px;
 }
 .slogan_block_left,
 .slogan_block_right
@@ -101,4 +97,32 @@ a.active_item :hover
 .navbar-header
 {
     width: 100%;
+}
+.login_block
+{
+    margin: 10px 0;
+}
+
+.user_menu_block
+{
+    margin: 30px 0;
+}
+.user_menu
+{
+    padding: 0;
+    margin: 10px 0;
+    list-style: none;
+    text-align: right;
+}
+
+.user_menu > li
+{
+    margin: 10px 0;
+}
+
+.divider{
+    height: 1px;
+    margin: 9px 0;
+    overflow: hidden;
+    background-color: #e5e5e5;
 }
