@@ -311,7 +311,7 @@ function Exhibition() {
             {
                 swal({
                     title: "OK",
-                    text: "post error",
+                    text: "",
                     type: "success",
                     showCancelButton: false,
                     closeOnConfirm: false,
