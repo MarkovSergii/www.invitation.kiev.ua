@@ -69,19 +69,22 @@ function Order_invit (ex_id)
 
         var go_next_after_first = function()
         {
-            var first_result = q1.getValues();
+            var first_result = q1.FirstTextVal();
+            console.log(first_result.data);
             if (first_result.error)
             {
 
             }
             else
             {
-                if (first_result.data[0].answers[0].id == 0)
+                if (first_result.data == find_translation('no',curent_language))
                 {
+                    that.user_type='simple';
                     that.show_only_basic_question();
                 }
                 else
                 {
+                    that.user_type='pro';
                     that.show_basic_and_pro_question();
                 }
             }
@@ -91,9 +94,6 @@ function Order_invit (ex_id)
         var first = that.all_questions.filter(function(obj){
             if (obj.is_first) return true
         });
-        first[0].questionType = 'radiobox';
-        first[0].question = {id:first[0].id,text:first[0].text,answers:[{id:1,text:find_translation('yes',curent_language)},{id:0,text:find_translation('no',curent_language)}]};
-
 
         var q1 = $('#query_block').createQuiz({
             data:first,
@@ -145,7 +145,7 @@ function Order_invit (ex_id)
     };
     this.send_result = function()
     {
-        console.log(this.getValues());
+        console.dir('user is '+that.user_type+' '+this.getValues());
     };
     this.show_ticket = function()
     {

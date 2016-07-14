@@ -169,8 +169,9 @@ function Exhibition() {
 
                 that.add_exhib();
 
-            //    $("#example-basic-t-0").get(0).click();
-            //    that.hide_add_form();
+                $("#example-basic-t-0").get(0).click();
+                that.hide_add_form()
+                location.reload();
             }
         });
 

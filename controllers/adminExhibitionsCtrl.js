@@ -112,9 +112,45 @@ module.exports = function () {
                     one_question.name_en = new_exhib.first_question_en;
                     one_question.name_ukr =new_exhib.first_question_ukr;
                     one_question.exhibition_id = exhib.id;
+                    one_question.q_type = 'radiobox';
+
                     one_question.is_first = 1;
+                    one_question.answers = [
+                        {
+                            ru: "Да",
+                            en: 'Yes',
+                            ukr:'Так'
+                        },
+                        {
+                            ru: "Нет",
+                            en: 'No',
+                            ukr:'Ні'
+                        }
+                    ];
+
+
                     QuestionModel.add_question(one_question, function (err, question) {
                         if (err) console.log('error');
+
+
+                        async.each(one_question.answers, function (item) {
+
+                            var one_answer = {};
+                            one_answer.name_ru = item.ru;
+                            one_answer.name_en = item.en;
+                            one_answer.name_ukr = item.ukr;
+                            one_answer.question_id = question.id;
+
+
+                            AnswerModel.add_answer(one_answer, function (err, answer) {
+
+
+                            });
+                        }, function (err) {
+
+                            console.log('err');
+                        });
+
 
                         // add other questions
                         async.each(new_exhib.questions, t_question, function (err) {
