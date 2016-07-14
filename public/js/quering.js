@@ -7,6 +7,7 @@ function Order_invit (ex_id)
     var that = this;
     this.ex_id = ex_id;
     this.user_type='simple';
+    this.user_type_answer;
     this.all_questions = [];
 
 
@@ -55,7 +56,7 @@ function Order_invit (ex_id)
     {
         $.get('/user/exhibition/'+that.ex_id+'/questions',function(data){
             that.all_questions = that.transform_questionst(data.data);
-            console.log(that.all_questions);
+
             that.show_first_question();
         });
 
@@ -70,7 +71,8 @@ function Order_invit (ex_id)
         var go_next_after_first = function()
         {
             var first_result = q1.FirstTextVal();
-            console.log(first_result.data);
+            that.user_type_answer = q1.getValues();
+
             if (first_result.error)
             {
 
@@ -145,11 +147,17 @@ function Order_invit (ex_id)
     };
     this.send_result = function()
     {
-        console.dir('user is '+that.user_type+' '+this.getValues());
+        if (this.getValues().error == false)
+        {
+            var user_answer = this.getValues().data.concat(that.user_type_answer.data);
+            $.post('/user/exhibitions/get_ticket',{answers:JSON.stringify(user_answer)},function(data){
+                that.show_ticket(data);
+            });
+        }
     };
-    this.show_ticket = function()
+    this.show_ticket = function(data)
     {
-
+        console.log(data);
     };
 }
 
