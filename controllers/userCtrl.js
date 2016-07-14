@@ -475,11 +475,12 @@ module.exports  = function(){
                 });
             });
         },
-        CreateOrder:function(req,res){
+        GetTicket:function(req,res){
            // insert into users_orders
            // insert into users_answers
            // generate id and barcode
            // send it to user
+            res.send(req.body);
         },
         OrderExhibition:function(req,res){
             get_main_template(req,res,function(err,data){
@@ -512,9 +513,6 @@ module.exports  = function(){
                         }
                     }
                 });
-;
-
-
             });
         },
         is_auth:function(req,res){
