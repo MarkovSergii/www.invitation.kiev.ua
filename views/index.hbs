@@ -93,10 +93,10 @@
                         Здравствуйте, <span style="font-weight: bold;">{{user.first_name}}&nbsp;{{user.last_name}}</span>
                         <ul class="user_menu">
                             <li>
-                                <a href="/invit" class="get_ticket">{{dictionary.get_invit}}</a>
+                                <a href="/page/2" class="get_ticket">{{dictionary.get_invit}}</a>
                             </li>
                             <li>
-                                <a href="/user" class="user_detail">{{dictionary.edit_profile}}</a>
+                                <a href="/user/details" class="user_detail">{{dictionary.edit_profile}}</a>
                             </li>
                             {{#IFactive user.role 'admin'}}
                                 <li class="divider">
