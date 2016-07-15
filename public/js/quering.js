@@ -150,14 +150,14 @@ function Order_invit (ex_id)
         if (this.getValues().error == false)
         {
             var user_answer = this.getValues().data.concat(that.user_type_answer.data);
-            $.post('/user/exhibitions/get_ticket',{answers:JSON.stringify(user_answer)},function(data){
+            $.post('/user/exhibitions/get_ticket',{answers:JSON.stringify(user_answer),exhibition_id:that.ex_id},function(data){
                 that.show_ticket(data);
             });
         }
     };
     this.show_ticket = function(data)
     {
-        console.log(data);
+        $('#query_block').html(data);
     };
 }
 

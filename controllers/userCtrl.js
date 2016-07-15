@@ -6,6 +6,8 @@ var userModel = require('../models/userModel');
 var menuModel = require('../models/menuModel');
 var pageModel = require('../models/pageModel');
 var users_ordersModel = require('../models/users_ordersModel');
+var users_answersModel = require('../models/users_answersModel');
+
 
 var exhibitionModel = require('../models/exhibitionModel');
 var global_func = require('../own_modules/func');
@@ -13,9 +15,17 @@ var dictionary = require('../own_modules/translations');
 var settingsModel = require('../models/settingsModel');
 var email = require('../own_modules/email');
 
+var async = require('async');
+var hbs = require('handlebars');
+var bwipjs = require('bwip-js');
+
+
+bwipjs.loadFont('Inconsolata', 108,
+    require('fs').readFileSync('fonts/Inconsolata.otf', 'binary'));
+
 
 var def_lang = 'ru';
-var curent_lang = def_lang;
+//var curent_lang = def_lang;
 
 var languages = [{name:"ru"},{name:"en"},{name:"ukr"}];
 
@@ -29,12 +39,12 @@ function arrayObjectIndexOf(myArray, searchTerm, property, next) {
 var get_main_template = function(req, res,callback)
 {
     if (req.cookies.lang) {
-        curent_lang = req.cookies.lang;
+       // curent_lang = req.cookies.lang;
     }
     else {
         // save def_lang
         res.cookie('lang', def_lang);
-        curent_lang = def_lang;
+       // curent_lang = def_lang;
     }
 
     menuModel.getAllMenuItems(function (err, data) {
@@ -50,7 +60,7 @@ var get_main_template = function(req, res,callback)
                 var item = data[i];
 
                 one_item.id = item.id;
-                one_item.name = item['name_' + curent_lang];
+                one_item.name = item['name_' + req.cookies.lang];
                 one_item.page_id = item['page_id'];
             /*    if (item['page_id']==page_id)
                 {
@@ -65,7 +75,7 @@ var get_main_template = function(req, res,callback)
                     one_item.link = '/page/' + item['page_id'];
                 }
                 else {
-                    one_item.link = item['link_' + curent_lang];
+                    one_item.link = item['link_' + req.cookies.lang];
                 }
 
 
@@ -89,7 +99,7 @@ var get_main_template = function(req, res,callback)
 
 
 
-            callback(null,{lang: languages, user: req.user, menu_items: menu1,dictionary:dictionary(curent_lang)});
+            callback(null,{lang: languages, user: req.user, menu_items: menu1,dictionary:dictionary(req.cookies.lang)});
 
 
         }
@@ -107,12 +117,12 @@ var get_main_template = function(req, res,callback)
 var get_full_page = function (req, res, page_id, callback) {
 
     if (req.cookies.lang) {
-        curent_lang = req.cookies.lang;
+      //  curent_lang = req.cookies.lang;
     }
     else {
         // save def_lang
         res.cookie('lang', def_lang);
-        curent_lang = def_lang;
+      //  curent_lang = def_lang;
     }
 
     menuModel.getAllMenuItems(function (err, data) {
@@ -128,7 +138,7 @@ var get_full_page = function (req, res, page_id, callback) {
                 var item = data[i];
 
                 one_item.id = item.id;
-                one_item.name = item['name_' + curent_lang];
+                one_item.name = item['name_' + req.cookies.lang];
                 one_item.page_id = item['page_id'];
                 if (item['page_id']==page_id)
                 {
@@ -143,7 +153,7 @@ var get_full_page = function (req, res, page_id, callback) {
                     one_item.link = '/page/' + item['page_id'];
                 }
                 else {
-                    one_item.link = item['link_' + curent_lang];
+                    one_item.link = item['link_' + req.cookies.lang];
                 }
 
 
@@ -194,7 +204,7 @@ var get_full_page = function (req, res, page_id, callback) {
                         if (data.length == 0)
                         {
                             ex_block = 'no exhibitions';
-                            callback(null,{lang: languages, user: req.user, menu_items: menu1, content: ex_block,dictionary:dictionary(curent_lang)});
+                            callback(null,{lang: languages, user: req.user, menu_items: menu1, content: ex_block,dictionary:dictionary(req.cookies.lang)});
                         }
                         else
                         {
@@ -203,13 +213,13 @@ var get_full_page = function (req, res, page_id, callback) {
                             ex_block = '<div class="exhibition_calendar">';
                             for (var j=0;j<data.length;j++)
                             {
-                                ex_block = ex_block +'<a class="go_exhib" ex_name = "'+data[j]['name_'+curent_lang]+'"  ex_id = "'+data[j]['id']+'" href="/user/exhibitions/'+data[j]['name_'+curent_lang]+'/'+data[j]['id']+'"> <div class="exhibition_calendar_item">'
-                                +'<div class="exhib_name">'+data[j]['name_'+curent_lang]+'</div>'
+                                ex_block = ex_block +'<a class="go_exhib" ex_name = "'+data[j]['name_'+req.cookies.lang]+'"  ex_id = "'+data[j]['id']+'" href="/user/exhibitions/'+data[j]['name_'+req.cookies.lang]+'/'+data[j]['id']+'"> <div class="exhibition_calendar_item">'
+                                +'<div class="exhib_name">'+data[j]['name_'+req.cookies.lang]+'</div>'
 
-                                + data[j]['content_'+curent_lang]+'</div></a>';
+                                + data[j]['content_'+req.cookies.lang]+'</div></a>';
                             }
                             ex_block = ex_block+'</div>';
-                            callback(null,{lang: languages, user: req.user, menu_items: menu1, content: ex_block,dictionary:dictionary(curent_lang)});
+                            callback(null,{lang: languages, user: req.user, menu_items: menu1, content: ex_block,dictionary:dictionary(req.cookies.lang)});
                         }
 
                     });
@@ -226,10 +236,10 @@ var get_full_page = function (req, res, page_id, callback) {
                             content = "No data for item";
                         }
                         else {
-                            content = page['content_' + curent_lang];
+                            content = page['content_' + req.cookies.lang];
                         }
 
-                        callback(null,{lang: languages, user: req.user, menu_items: menu1, content: content,dictionary:dictionary(curent_lang)});
+                        callback(null,{lang: languages, user: req.user, menu_items: menu1, content: content,dictionary:dictionary(req.cookies.lang)});
 
                     });
                 }
@@ -268,7 +278,7 @@ module.exports  = function(){
             };
 
 
-            app.render('email_verification',{user:user,dictionary:dictionary(curent_lang)}, function(err, html){
+            app.render('email_verification',{user:user,dictionary:dictionary(req.cookies.lang)}, function(err, html){
                 mailOptions.html = html;
 
                 email.sendEmail(mailOptions, function (email_result) {
@@ -294,7 +304,7 @@ module.exports  = function(){
             };
 
 
-            app.render('forgot_password_email',{user:user,dictionary:dictionary(curent_lang)}, function(err, html){
+            app.render('forgot_password_email',{user:user,dictionary:dictionary(req.cookies.lang)}, function(err, html){
                 mailOptions.html = html;
 
                 email.sendEmail(mailOptions, function (email_result) {
@@ -312,7 +322,7 @@ module.exports  = function(){
         user_email_verificate:function(req,res){
 
            userModel.verifyEmail(req.params.id,function(err,data){
-                   res.render('email_verification_page',{err:err,is_verify:data,linkto:req.query.exhib,dictionary:dictionary(curent_lang)});
+                   res.render('email_verification_page',{err:err,is_verify:data,linkto:req.query.exhib,dictionary:dictionary(req.cookies.lang)});
 
             });
 
@@ -322,7 +332,7 @@ module.exports  = function(){
 
             get_main_template(req, res, function (err, global_data) {
 
-               res.render('forgot_password_new_pass_page',{user:req.params.id,dictionary:dictionary(curent_lang)}, function (err, html) {
+               res.render('forgot_password_new_pass_page',{user:req.params.id,dictionary:dictionary(req.cookies.lang)}, function (err, html) {
                    global_data.content = html;
                    res.render('index', global_data);
                    });
@@ -430,7 +440,7 @@ module.exports  = function(){
 
                         if (data.value == 'simple') {
                             // simple
-                            res.render('registration_simple',{dictionary:dictionary(curent_lang)}, function (err, html) {
+                            res.render('registration_simple',{dictionary:dictionary(req.cookies.lang)}, function (err, html) {
                                 global_data.content = html;
                                 res.render('index', global_data);
                             });
@@ -438,7 +448,7 @@ module.exports  = function(){
                         }
                         else {
                             // full
-                            res.render('registration_full',{dictionary:dictionary(curent_lang)}, function (err, html) {
+                            res.render('registration_full',{dictionary:dictionary(req.cookies.lang)}, function (err, html) {
                                 global_data.content = html;
                                 res.render('index', global_data);
                             });
@@ -477,10 +487,100 @@ module.exports  = function(){
         },
         GetTicket:function(req,res){
            // insert into users_orders
-           // insert into users_answers
-           // generate id and barcode
-           // send it to user
-            res.send(req.body);
+
+            users_ordersModel.addOrder({user_id:req.user.id,exhibition_id:req.body.exhibition_id},function(err,order){
+
+                // insert into users_answers
+
+                var ar = JSON.parse(req.body.answers);
+               // console.log(ar);
+                async.each(ar,function(item,callback){
+
+
+
+                    var text_value2;
+                    var text_value1;
+                    var text_value;
+
+                    var value = item.answers.map(function(answer)
+                    {
+                       text_value1 = (answer['text']) ? answer['text'] : "";
+                       text_value2 = (answer.other) ? answer.other : "";
+
+                       return answer.id;
+                    });
+
+                    text_value = (text_value1) ? text_value1 : text_value2;
+
+                    users_answersModel.addAnswers({user_id:req.user.id,exhibition_id:req.body.exhibition_id,question_id:item.question_id,value:value.join(','),text_value:text_value},function(err,user_answer){
+
+                        callback();
+                    });
+
+
+                },function(err){
+                    // generate id and barcode
+
+                    // send it to user
+
+                    exhibitionModel.get_exhibition_by_id({id:req.body.exhibition_id},function(err,exhib){
+
+                        if (err) res.send('error');
+
+
+                        var code = order.id+'9999';
+
+                        while (code.length != 12)
+                            code = '0'+code;
+
+
+                        bwipjs.toBuffer({
+                            bcid:        'ean13',         // Barcode type
+                            text:        code,            // Text to encode
+                            scale:       3,               // 3x scaling factor
+                            height:      10,              // Bar height, in millimeters
+                            includetext: true,            // Show human-readable text
+                            guardwhitespace: true,
+                            textxalign:  'center',        // Always good to set this
+                            textfont:    'Inconsolata',   // Use your custom font
+                            textsize:    13               // Font size, in points
+                        }, function (err, png) {
+                            if (err) {
+                                console.log(err);
+                                // Decide how to handle the error
+                                // `err` may be a string or Error object
+                            } else {
+
+                                var new_order =
+                                {
+                                    id:order.id,
+                                    barcode:'<img src="data:image/png;base64,'+png.toString('Base64')+'">',
+                                    FIO:req.user.last_name+' '+req.user.first_name
+                                };
+
+                                var template = hbs.compile(exhib['content_res_'+req.cookies.lang]);
+                                var html    = template({order:new_order});
+                                res.send(html);
+
+                            }
+                        });
+
+
+                    });
+
+                });
+
+
+
+
+
+
+            });
+
+
+
+
+
         },
         OrderExhibition:function(req,res){
             get_main_template(req,res,function(err,data){

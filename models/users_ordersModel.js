@@ -14,6 +14,15 @@ var obj = {
             .catch(function(err){
                 callback(err)
             })
+    },
+    addOrder:function(params,callback) {
+        models.Users_orders.create(params)
+            .then(function(order) {
+                callback(null,order)
+            })
+            .catch(function(err){
+                callback(err)
+            })
     }
 
 

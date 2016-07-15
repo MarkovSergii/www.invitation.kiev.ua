@@ -26,6 +26,16 @@ var obj = {
                 callback(err)
             })
     },
+    get_exhibition_by_id:function(params,callback)
+    {
+        models.Exhibitions.findOne({where:params})
+            .then(function(exhib) {
+                callback(null,exhib)
+            })
+            .catch(function(err){
+                callback(err)
+            })
+    },
     ExhibitionQuestions:function(ex_id,callback1) {
         var qq = [];
 
