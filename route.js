@@ -24,13 +24,13 @@ var curent_lang = def_lang;
 
 router.use(function(req, res,next) {
     if (req.cookies.lang) {
-        curent_lang = req.cookies.lang;
+       // curent_lang = req.cookies.lang;
         next();
     }
     else {
         // save def_lang
         res.cookie('lang', def_lang);
-        curent_lang = def_lang;
+      //  curent_lang = def_lang;
         next();
     }
 });
@@ -77,7 +77,7 @@ var pass = passport.authenticate('local',{ successRedirect: '/' });
 var mustBeAuth = function(req,res,next){
 
     if (req.isAuthenticated()) { next() }
-    else res.render('401',{dictionary:dictionary(curent_lang)});
+    else res.render('401',{dictionary:dictionary(req.cookies.lang)});
 
 };
 
@@ -92,12 +92,12 @@ var mustBeAdmin = function(req,res,next){
         }
         else
         {
-            res.render('403',{dictionary:dictionary(curent_lang)})
+            res.render('403',{dictionary:dictionary(req.cookies.lang)})
         }
     }
     else
     {
-        res.render('401',{dictionary:dictionary(curent_lang)})
+        res.render('401',{dictionary:dictionary(req.cookies.lang)})
     }
 };
 
@@ -201,7 +201,7 @@ router.post('/admin/file/delete',adminFileCtrl.deleteFile);
 router.post('/admin/settings/registration_data',settingsCtrl.set_registration_type);
 
 router.use(function(req, res) {
-    res.status(404).render('404',{dictionary:dictionary(curent_lang)});
+    res.status(404).render('404',{dictionary:dictionary(req.cookies.lang)});
 });
 
 
