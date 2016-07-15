@@ -47,8 +47,14 @@ module.exports  = function(){
         },
         updatePage:function(req,res){
             pageModel.updatePage(req.body,function(err){
-                if (err) res.send({err:err});
-                res.send({err:err,status:true,msg:""});
+                if (err) {
+                    res.send({err:err})
+                }
+                else
+                {
+                    res.send({err:err,status:true,msg:""});
+                }
+
 
             })
         },
