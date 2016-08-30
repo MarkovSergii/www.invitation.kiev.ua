@@ -1303,6 +1303,7 @@ a:focus {
 .form-group-sm .form-control + .form-control-feedback.fa {
   line-height: 30px;
 }
+
 /*
  * Component: Progress Bar
  * -----------------------

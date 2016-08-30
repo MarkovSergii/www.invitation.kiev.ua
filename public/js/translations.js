@@ -43,6 +43,18 @@ var global_translation = [
         "lang_ukr": "Зареєструватися"
     },
     {
+        "id":"update_button",
+        "lang_ru":"Обновить",
+        "lang_en":"Update",
+        "lang_ukr":"Оновити"
+    },
+    {
+        "id":"change_pass",
+        "lang_ru":"Поменять пароль",
+        "lang_en":"Change password",
+        "lang_ukr":"Змiнити пароль"
+    },
+    {
         "id": "enter",
         "lang_ru": "Вход на сайт",
         "lang_en": "Enter to the site",
@@ -296,9 +308,9 @@ var global_translation = [
     },
     {
         "id": "mobile",
-        "lang_ru": "mobile",
+        "lang_ru": "Мобильный телефон",
         "lang_en": "mobile",
-        "lang_ukr": "mobile"
+        "lang_ukr": "Мобільний телефон"
     },
     {
         "id": "mobile_error",
@@ -308,9 +320,15 @@ var global_translation = [
     },
     {
         "id": "password",
-        "lang_ru": "Password",
+        "lang_ru": "Введите пароль",
         "lang_en": "Password",
-        "lang_ukr": "Password"
+        "lang_ukr": "Введіть пароль"
+    },
+    {
+        "id": "new_password",
+        "lang_ru": "Введите новый пароль",
+        "lang_en": "New password",
+        "lang_ukr": "Введіть новий пароль"
     },
     {
         "id": "password_error",
@@ -320,9 +338,9 @@ var global_translation = [
     },
     {
         "id": "repassword",
-        "lang_ru": "Re Enter Password",
+        "lang_ru": "Повторите пароль",
         "lang_en": "Re Enter Password",
-        "lang_ukr": "Re Enter Password"
+        "lang_ukr": "Повторіть пароль"
     },
     {
         "id": "repassword_error",

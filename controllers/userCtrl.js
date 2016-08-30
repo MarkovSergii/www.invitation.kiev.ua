@@ -375,6 +375,9 @@ module.exports  = function(){
 
 
         },
+        saveDetails:function(req,res){
+                res.status(200);
+        },
         adduser:function(req,res)
         {
 
@@ -459,6 +462,19 @@ module.exports  = function(){
 
 
         },
+        /////////////////////////////////////////////////////////////////////
+        change_user_data: function(req, res){
+            get_main_template(req, res, function (err, global_data) {
+                settingsModel.set_registration_type(function (err, data) {
+                    res.render('user_cab',{dictionary:dictionary(req.cookies.lang)}, function (err, html) {
+                                global_data.content = html;
+                                res.render('index', global_data);
+                            });
+                })
+            })
+        
+        },
+        ////////////////////////////////////////////////////////////////
         goToExhibition:function(req,res){
             get_main_template(req,res,function(err,data){
                 var content;
@@ -479,13 +495,14 @@ module.exports  = function(){
         {
             get_main_template(req,res,function(err,data) {
 
-                res.render('user_cab',function(err,html){
+                res.render('user_cab',{dictionary:dictionary(req.cookies.lang),user: req.user},function(err,html){
                     data.content = html;
                     res.render('index',data);
+                    // res.render('index',user);
                 });
             });
         },
-        GetTicket:function(req,res){
+        GetTicket:function(req,res){    
            // insert into users_orders
 
             users_ordersModel.addOrder({user_id:req.user.id,exhibition_id:req.body.exhibition_id},function(err,order){

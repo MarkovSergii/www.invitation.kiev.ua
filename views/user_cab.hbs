@@ -1,1 +1,166 @@
-user !!!
+
+<script src="/js/user_cab.js"></script>
+<form class="form-horizontal">
+    <fieldset>
+
+        <!-- Form Name -->
+        <legend>{{dictionary.reg}}</legend>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="input_firstname1">{{dictionary.first_name }}</label>
+            <div class="col-md-4">
+                <input id="input_firstname1" name="input_firstname1" type="text" value="{{user.first_name}}" class="form-control input-md" required="">
+                <span id="firstname_span1" class="error" hidden>{{dictionary.first_name_error }}</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="input_FIO">{{dictionary.last_name }}</label>
+            <div class="col-md-4">
+                <input id="input_lastname" name="input_lastname" type="text" value="{{user.last_name }}" class="form-control input-md" required="">
+                <span id="lastname_span" class="error" hidden>{{dictionary.last_name_error  }}</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="input_FIO">{{dictionary.company }}</label>
+            <div class="col-md-4">
+                <input id="input_company" name="input_company" type="text" value="{{user.company }}" class="form-control input-md" required="">
+                <span id="span_company" class="error" hidden>{{dictionary.company_error }}</span>
+            </div>
+        </div>
+
+        <!-- Select Basic -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="input_country">{{dictionary.country }}</label>
+            <div class="col-md-4">
+                <select id="input_country" name="input_country" class="form-control"  >
+                   <option selected value="{{user.country_id }}">{{user.country_text }}</option>
+                </select>
+                <span id="country_span" class="error" hidden>{{dictionary.country_error }}</span>
+            </div>
+        </div>
+
+        <!-- Select Basic -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="input_oblast">{{dictionary.oblast }}</label>
+            <div class="col-md-4">
+                <select id="input_oblast" name="input_oblast" class="form-control">
+                    <option selected value="{{user.oblast_id}}">{{user.oblast_text}}</option>
+                </select>
+                <span id="oblast_span" class="error" hidden>{{dictionary.oblast_error }}</span>
+            </div>
+        </div>
+
+        <!-- Select Basic -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="input_city_select">{{dictionary.city  }}</label>
+            <div class="col-md-4">
+                <select id="input_city_select" name="input_city" class="form-control">
+                    <option selectedvalue="user.city_id">{{user.city_text}}</option>
+                </select>
+                <span id="city_select_span" class="error" hidden>{{dictionary.city_error}}</span>
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="input_city">{{dictionary.city  }}</label>
+            <div class="col-md-4">
+                <input id="input_city" name="input_city" type="text" placeholder="{{dictionary.city}}" class="form-control input-md" required="">
+                <span id="city_span" class="error" hidden>{{dictionary.city_error}}</span>
+            </div>
+        </div>
+
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="input_postindex">{{dictionary.postindex   }}</label>
+            <div class="col-md-4">
+                <input id="input_postindex" name="input_postindex" type="text" value="{{user.postindex   }}" class="form-control input-md" required="">
+                <span id="postindex_span" class="error" hidden>{{dictionary.postindex_error   }}</span>
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="input_street">{{dictionary.street }}</label>
+            <div class="col-md-4">
+                <input id="input_street" name="input_street" type="text" value="{{user.street }}" class="form-control input-md" required="">
+                <span id="street_span" class="error" hidden>{{dictionary.street_error }}</span>
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="input_street_num">{{dictionary.street_num  }}</label>
+            <div class="col-md-4">
+                <input id="input_street_num" name="input_street_num" type="text" value="{{user.street_num  }}" class="form-control input-md" required="">
+                <span id="street_num_span" class="error" hidden>{{dictionary.street_num_error  }}</span>
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="input_office">{{dictionary.office   }}</label>
+            <div class="col-md-4">
+                <input id="input_office" name="input_office" type="text" value="{{user.office   }}" class="form-control input-md" required="">
+                <span id="office_span" class="error" hidden>{{dictionary.office   }}</span>
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="input_email">{{dictionary.email }}</label>
+            <div class="col-md-4">
+                <input id="input_email" name="input_email" type="text" value="{{user.email }}" class="form-control input-md" required="">
+                <span id="email_span" class="error" hidden>{{dictionary.email_error }}</span>
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="input_mobile">{{dictionary.mobile  }}</label>
+            <div class="col-md-4">
+                <input id="input_mobile" name="input_mobile" type="text" value="{{user.mobile  }}" class="form-control input-md" required="">
+                <span id="mobile_span" class="error" hidden>{{dictionary.mobile_error }}</span>
+            </div>
+        </div>
+
+        <div class="changePassword ">
+            <div class="form-group ">
+                <label class="col-md-4 control-label" for="btn_register"></label>
+                <div class="col-md-4">
+                    <button id="btn_change_pass" type="button" name="btn_register" class="btn btn-danger btn-block">{{dictionary.change_pass}}</button>
+                </div>
+            </div>
+            <!-- Password input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="input_password">{{dictionary.password }}</label>
+                <div class="col-md-4">
+                    <input id="input_password" name="input_password" type="password" placeholder="{{dictionary.new_password }}" class="form-control input-md" required="">
+                    <span id="password_span" class="error" hidden>{{dictionary.password_error }}</span>
+
+                </div>
+            </div>
+
+            <!-- Password input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="input_re_password">{{dictionary.repassword }}</label>
+                <div class="col-md-4">
+                    <input id="input_re_password" name="input_re_password" type="password" placeholder="{{dictionary.repassword }}" class="form-control input-md" required="">
+                    <span id="repassword_span" class="error" hidden>{{dictionary.repassword_error }}</span>
+                </div>
+            </div>
+        </div>
+        <!-- Button -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="btn_register"></label>
+            <div class="col-md-4">
+                <button id="btn_register" type="button" name="btn_register" class="btn btn-success btn-block">{{dictionary.update_button}}</button>
+            </div>
+        </div>
+
+    </fieldset>
+</form>
