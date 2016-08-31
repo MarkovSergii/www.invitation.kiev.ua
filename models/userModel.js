@@ -24,6 +24,16 @@ var obj = {
                 callback(err)
             })
     },
+    updateUser:function(user,callback)
+    {
+        models.Users.update(user)
+            .then(function(user) {
+                callback(null,user)
+            })
+            .catch(function(err){
+                callback(err)
+            })
+    },
     verifyEmail:function(email_verification_code,callback){
         models.Users.update({email_verification_status:1},{where:{email_verification_code:email_verification_code}})
             .then(function(user) {

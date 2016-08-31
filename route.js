@@ -131,6 +131,9 @@ router.get('/is_auth',userCtrl.is_auth);
 //add user
 router.post('/user',userCtrl.adduser);
 
+//update user
+router.post('/update',userCtrl.updateuser);
+
 
 
 // auth area

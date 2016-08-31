@@ -54,12 +54,12 @@ function City()
 {
     this.load = function(oblast_id){
         $.get('/city/'+oblast_id, function(data){
-            $('#input_city_select').html("");
+            // $('#input_city_select').html("");
 
             data.forEach(function(item){
                 $("#input_city_select").append( $('<option value="'+item.id+'">'+item['name_'+curent_language]+'</option>'));
             });
-            $('#input_city_select').prop('value', false);
+            // $('#input_city_select').prop('value', false);
 
         }).fail(function(err) {
             console.log(err);
@@ -90,9 +90,9 @@ function ShowChangePassword(){
     $('.changePassword .form-group').eq(2).toggle();
 }
 
-function Registration (reg_type)
+function Registration (reg_type) //ref_type full or simple
 {
-
+    // console.log(reg_type);
     var that = this;
     var country = new Country();
     var oblast = new Oblast();
@@ -109,7 +109,7 @@ function Registration (reg_type)
         $('#repassword_span').hide();
         $('#mobile_span').hide();
         $('#country_span').hide();
-        // $('#oblast_span').hide();
+        $('#oblast_span').hide();
         
         if (this.registration_type == 'full')
         {
@@ -143,10 +143,6 @@ function Registration (reg_type)
            $('#country_span').show();
            return false
        }
-       // if ($('#input_country').val() != 'Украина'){
-
-       //    $('#input_city').val() = '{{user.city_text}}';
-       // }
        if ($('#input_oblast').is(':visible') && ($("#input_oblast").val() == null))
        {
            $('#oblast_span').show();
@@ -207,19 +203,17 @@ function Registration (reg_type)
            return false
        }
 
-       if ($('#input_password').val().match(/^[а-яА-ЯёЁa-zA-Z0-9]{6,}$/i)== null)
-       {
-           $('#password_span').show();
-           return false
-       }
+       // if ($('#input_password').val().match(/^[а-яА-ЯёЁa-zA-Z0-9]{6,}$/i)== null)
+       // {
+       //     $('#password_span').show();
+       //     return false
+       // }
 
-       if ($('#input_password').val()!=$('#input_re_password').val())
-       {
-           $('#repassword_span').show();
-           return false
-       }
-
-      
+       // if ($('#input_password').val()!=$('#input_re_password').val())
+       // {
+       //     $('#repassword_span').show();
+       //     return false
+       // }
        return true
 
    };
@@ -227,19 +221,24 @@ function Registration (reg_type)
    this.init = function()
    {
 
-       country.load();
-       oblast.load();
-
-       // $('#input_country').val("");
-       // $('#input_oblast').val("");
-       // $('#input_oblast').parent().parent().hide();
-
+      country.load();
+      
+      if($('#input_country option:selected').val() != 0 ){//country is not Ukraine
+        oblast.hide_input();
+        // city.load();
+        city.show_input();
+        city.hide_select();
+      }else{
+        oblast.load();
+        // console.log($('#input_city_select option:selected').val());
+      }
+      
        if (this.registration_type == 'full')
        {
 
-           $('#input_city_select').val("");
+           // $('#input_city_select').val("");
            $('#input_city_select').parent().parent().hide();
-           $('#input_city').parent().parent().hide();
+           // $('#input_city').parent().parent().hide();
 
        }
    };
@@ -262,23 +261,26 @@ function Registration (reg_type)
        {
            // its foreign country
            oblast.hide_input();
+           // oblast.hide();
            city.show_input();
            city.hide_select();
            // set mobile format
            $('#input_mobile').val('');
            $('#input_mobile').mask('0#');
-
+           $('#input_city').empty();
            
        }
     };
     this.oblast_select = function()
     {
+            $('#input_city_select').empty();
             city.load($(this).val());
             city.hide_input();
             city.show_select();
     };
     this.city_select = function()
     {
+
         if ($(this).val() == -1)
         {
             // other city
@@ -340,8 +342,8 @@ function Registration (reg_type)
 
 
 
-
-           $.post(window.location.protocol + '//' + location.host + '/user', user, function (data) {
+           // console.log(window.location.protocol + '//' + location.host + '/user');
+           $.post(window.location.protocol + '//' + location.host + '/update', user, function (data) {
                if (data.err) {
                    swal({
                        title: "Ошибка!" + data.msg,
@@ -353,8 +355,8 @@ function Registration (reg_type)
                }
                else {
                    if (!data.status) {
+                       console.log(data);
                        if (data.msg == 'dublicate') {
-
                            swal({
                                title: "Ошибка!",
                                text: "Пользователь с таким емайлом уже зарегестрирован воспользуйтесь формой востановления пароля",
