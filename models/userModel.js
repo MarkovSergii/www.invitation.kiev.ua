@@ -26,7 +26,7 @@ var obj = {
     },
     updateUser:function(user,callback)
     {
-        models.Users.update(user)
+        models.Users.update({id:id})
             .then(function(user) {
                 callback(null,user)
             })

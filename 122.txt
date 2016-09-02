@@ -1,1 +1,9 @@
 добавлены настройки проверки полей в личном кабинете.
+рестартеры ноды 
+
+nodemon 
+nodemon server.js
+
+forever
+npm install -g forever
+forever -w start YourApp.js

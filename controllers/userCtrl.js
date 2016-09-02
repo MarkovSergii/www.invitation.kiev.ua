@@ -425,44 +425,74 @@ module.exports  = function(){
         updateuser:function(req,res)
         {
             console.log('мы тут');
-            task.findUserByEmail(req.body.email,function(err,data){
-                    console.log('мы тут');
+            task.findUserByID(req.user.id,function(err,data){
                     if (err) {
                         res.send({err:err,status:false,msg:"DB error"})
                     }
-                    else
-                {
-                    if (data.status == true)
-                    {
-                        //user found error
-                        res.send({err:null,status:false,msg:"dublicate"})
-                    }
-                    else
-                    {
+                    else{
+                        if (data.status != true)
+                            {
+                                //user found error
+                                res.send({err:null,status:false,msg:"no_user"})
+                        }
+                        // res.send({err:null,status:true});
                         var user = req.body;
-
+                        // user.id = require.user.id;
                         user.email_verification_status = 0;
                         user.role = 'user';
                         user.password = global_func.encode_password(user.password);
                         user.email_verification_code = global_func.encode_password(user.email);
                         user.banned_status = 0;
 
-                        userModel.updateUser(user,function(err,data){
+                        userModel.addUser(user,function(err,data){
                             if (err) {
-                                res.send({err:err,status:false,msg:"DB error"})
+                                res.send({err:err,status:false,msg:"hello"});
                             }
                             task.send_verification_email(user,function(err,data){
                                 if (err)
                                 {
-                                    res.send({err:err,status:false,msg:"SMTP error"})
+                                    res.send({err:err,status:false,msg:"SMTP error"});
                                 }
-                                res.send({err:null,status:true})
+                                res.send({err:null,status:true});
 
                             });
 
                         });
+
+
                     }
-                }
+                // {
+                //     if (data.status == true)
+                //     {
+                //         //user found error
+                //         res.send({err:null,status:false,msg:"dublicate"})
+                //     }
+                //     else
+                //     {
+                //         var user = req.body;
+
+                //         user.email_verification_status = 0;
+                //         user.role = 'user';
+                //         user.password = global_func.encode_password(user.password);
+                //         user.email_verification_code = global_func.encode_password(user.email);
+                //         user.banned_status = 0;
+
+                //         userModel.updateUser(user,function(err,data){
+                //             if (err) {
+                //                 res.send({err:err,status:false,msg:"DB error"})
+                //             }
+                //             task.send_verification_email(user,function(err,data){
+                //                 if (err)
+                //                 {
+                //                     res.send({err:err,status:false,msg:"SMTP error"})
+                //                 }
+                //                 res.send({err:null,status:true})
+
+                //             });
+
+                //         });
+                //     }
+                // }
             });
 
         },
@@ -506,19 +536,6 @@ module.exports  = function(){
 
 
         },
-        /////////////////////////////////////////////////////////////////////
-        change_user_data: function(req, res){
-            get_main_template(req, res, function (err, global_data) {
-                settingsModel.set_registration_type(function (err, data) {
-                    res.render('user_cab',{dictionary:dictionary(req.cookies.lang)}, function (err, html) {
-                                global_data.content = html;
-                                res.render('index', global_data);
-                            });
-                })
-            })
-        
-        },
-        ////////////////////////////////////////////////////////////////
         goToExhibition:function(req,res){
             get_main_template(req,res,function(err,data){
                 var content;

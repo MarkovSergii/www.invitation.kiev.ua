@@ -292,9 +292,10 @@ function Registration (reg_type) //ref_type full or simple
             city.hide_input();
         }
     };
-   this.do_registration = function() {
+   this.update_user = function() {
 
        if (that.check()) {
+        
 
            var user = {
                first_name: $('#input_firstname1').val(),
@@ -356,19 +357,26 @@ function Registration (reg_type) //ref_type full or simple
                else {
                    if (!data.status) {
                        console.log(data);
-                       if (data.msg == 'dublicate') {
+                       if (data.msg == 'no_user') {
                            swal({
                                title: "Ошибка!",
-                               text: "Пользователь с таким емайлом уже зарегестрирован воспользуйтесь формой востановления пароля",
+                               text: "Данный пользователь не существует, пройдите пожалуйста процес регистрации",
                                type: "error",
-                               showCancelButton: true,
                                confirmButtonColor: "#DD6B55",
-                               confirmButtonText: "Востановить пароль!",
+                               confirmButtonText: "Перейти",
                                closeOnConfirm: true
                            }, function () {
-                               $('#forgot_modal').modal('show');
+                                window.location = '/registration';
                            });
-                       }
+                       }else if(data.msg == 'hello'){
+                           swal({
+                               title: "Сасайте!",
+                               text: "Ты попал сюда, сервер перезапускается))",
+                               type: "error",
+                               confirmButtonColor: "#DD6B55",
+                               closeOnConfirm: true
+                              });
+                      }
                        else {
                            swal({
                                title: "Ошибка!",
@@ -381,12 +389,10 @@ function Registration (reg_type) //ref_type full or simple
                    else {
                        swal({
                            title: 'Успех',
-                           text: 'Проверьте свою почту что б завершить регистрацию',
+                           text: 'Ваши данные изменены!',
                            type: "success",
                            showConfirmButton: true,
                            closeOnConfirm: true
-                       }, function () {
-                           window.location = '/';
                        });
 
                    }
@@ -424,6 +430,6 @@ $(document).ready(function() {
     $('#input_oblast').change(reg.oblast_select);
     $('#input_city_select').change(reg.city_select);
     $('#btn_change_pass').click(reg.change_password);//пока не сделано
-    $('#btn_register').click(reg.do_registration);
+    $('#btn_register').click(reg.update_user);
 
 });

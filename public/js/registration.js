@@ -357,7 +357,15 @@ function Registration (reg_type)
                            }, function () {
                                $('#forgot_modal').modal('show');
                            });
-                       }
+                       } else if(data.msg == 'hello'){
+                           swal({
+                               title: "Сасайте!",
+                               text: "Ты попал сюда, сервер перезапускается))",
+                               type: "error",
+                               confirmButtonColor: "#DD6B55",
+                               closeOnConfirm: true
+                              });
+                      }
                        else {
                            swal({
                                title: "Ошибка!",
