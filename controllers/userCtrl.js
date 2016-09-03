@@ -424,77 +424,30 @@ module.exports  = function(){
         },
         updateuser:function(req,res)
         {
-            console.log('мы тут');
-            task.findUserByID(req.user.id,function(err,data){
-                    if (err) {
-                        res.send({err:err,status:false,msg:"DB error"})
-                    }
-                    else{
-                        if (data.status != true)
-                            {
-                                //user found error
-                                res.send({err:null,status:false,msg:"no_user"})
-                        }
-                        // res.send({err:null,status:true});
-                        var user = req.body;
-                        // user.id = require.user.id;
-                        user.email_verification_status = 0;
-                        user.role = 'user';
-                        user.password = global_func.encode_password(user.password);
-                        user.email_verification_code = global_func.encode_password(user.email);
-                        user.banned_status = 0;
+            console.log('мы тут'); //первое если пользователь залогинился то искать его заново не нужно
+            console.log(req.body); // тут данные что ты прислал с клиента
+            console.log(req.user); //  тут пользователь если он залогинен (если он попал в кабинет значит полюбому залогинен)
 
-                        userModel.addUser(user,function(err,data){
-                            if (err) {
-                                res.send({err:err,status:false,msg:"hello"});
-                            }
-                            task.send_verification_email(user,function(err,data){
-                                if (err)
-                                {
-                                    res.send({err:err,status:false,msg:"SMTP error"});
-                                }
-                                res.send({err:null,status:true});
-
-                            });
-
-                        });
-
-
-                    }
-                // {
-                //     if (data.status == true)
-                //     {
-                //         //user found error
-                //         res.send({err:null,status:false,msg:"dublicate"})
-                //     }
-                //     else
-                //     {
-                //         var user = req.body;
-
-                //         user.email_verification_status = 0;
-                //         user.role = 'user';
-                //         user.password = global_func.encode_password(user.password);
-                //         user.email_verification_code = global_func.encode_password(user.email);
-                //         user.banned_status = 0;
-
-                //         userModel.updateUser(user,function(err,data){
-                //             if (err) {
-                //                 res.send({err:err,status:false,msg:"DB error"})
-                //             }
-                //             task.send_verification_email(user,function(err,data){
-                //                 if (err)
-                //                 {
-                //                     res.send({err:err,status:false,msg:"SMTP error"})
-                //                 }
-                //                 res.send({err:null,status:true})
-
-                //             });
-
-                //         });
-                //     }
-                // }
+            // записываем пришедшие данные в переменную
+            var user = req.body;
+            // добавляем к присланым данным идентификатор выставки
+            user.id = req.user.id;
+            // вызываем метод модели и передаем ему пользователя и callback
+            userModel.updateUser(user,function(err,data){
+                console.log(data); // возвращаемые методом update данные это число измененных данных
+                if (err)
+                {
+                    res.send({err:err,status:false,msg:"DB error"}); // произошла внутреняя ошибка
+                }
+                if (data==0)
+                {
+                    res.send({err:null,status:false,msg:"no_user"}); // обновление не прошло потому что нет пользователя с таким ID
+                }
+                else 
+                {
+                    res.send({err:null,status:true}); // успешно обновлено    
+                }
             });
-
         },
         get_page:function(req,res){
             get_full_page(req,res,req.params.id,function(err,data){

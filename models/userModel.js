@@ -26,7 +26,7 @@ var obj = {
     },
     updateUser:function(user,callback)
     {
-        models.Users.update({id:id})
+        models.Users.update(user,{ where: {id:user.id} })  // передаем изменяемые данные и указываем какого пользователя обновляем
             .then(function(user) {
                 callback(null,user)
             })

@@ -360,32 +360,15 @@ function Registration (reg_type) //ref_type full or simple
                        if (data.msg == 'no_user') {
                            swal({
                                title: "Ошибка!",
-                               text: "Данный пользователь не существует, пройдите пожалуйста процес регистрации",
+                               text: "Данный пользователь не существует обновление не произошло",
                                type: "error",
                                confirmButtonColor: "#DD6B55",
-                               confirmButtonText: "Перейти",
+                               confirmButtonText: "ОК",
                                closeOnConfirm: true
                            }, function () {
-                                window.location = '/registration';
+                               // window.location = '/registration';
                            });
-                       }else if(data.msg == 'hello'){
-                           swal({
-                               title: "Сасайте!",
-                               text: "Ты попал сюда, сервер перезапускается))",
-                               type: "error",
-                               confirmButtonColor: "#DD6B55",
-                               closeOnConfirm: true
-                              });
-                      }
-                       else {
-                           swal({
-                               title: "Ошибка!",
-                               text: 'Системная ошибка. Пожалуйста свяжитесь с службой поддержки',
-                               type: "error",
-                               showConfirmButton: true
-                           });
-                       }
-                   }
+                       }                   }
                    else {
                        swal({
                            title: 'Успех',
