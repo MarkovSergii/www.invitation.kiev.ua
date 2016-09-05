@@ -1,12 +1,23 @@
-{{user.password}}
 <script src="/js/user_cab.js"></script>
-<form class="form-horizontal">
+
+
+<div class="container">
+  <div>
+      <ul class=" nav nav-tabs col-md-8">
+        <li class="active"><a data-toggle="tab" href="#home">Данные профиля</a></li>
+        <li><a data-toggle="tab" href="#menu1">Просмотр пригласительных</a></li>
+      </ul>
+  </div>
+
+  <div class="tab-content col-md-10">
+    <div id="home" class="tab-pane fade in active">
+     <form class="form-horizontal col-md-9">
     <fieldset>
 
-        <!-- Form Name -->
-        <legend>{{dictionary.reg}}</legend>
+         <!-- Form Name -->
+        <!-- <legend>{{dictionary.reg}}</legend> --> 
 
-        <!-- Text input-->
+        <!-- Text input -->
         <div class="form-group">
             <label class="col-md-4 control-label" for="input_firstname1">{{dictionary.first_name }}</label>
             <div class="col-md-4">
@@ -64,7 +75,7 @@
             </div>
         </div>
 
-        <!-- Text input-->
+        <!-- Text input -->
         <div class="form-group">
             <label class="col-md-4 control-label" for="input_city">{{dictionary.city  }}</label>
             <div class="col-md-4">
@@ -74,7 +85,7 @@
         </div>
 
 
-        <!-- Text input-->
+        <!-- Text input -->
         <div class="form-group">
             <label class="col-md-4 control-label" for="input_postindex">{{dictionary.postindex   }}</label>
             <div class="col-md-4">
@@ -83,7 +94,7 @@
             </div>
         </div>
 
-        <!-- Text input-->
+        <!-- Text input -->
         <div class="form-group">
             <label class="col-md-4 control-label" for="input_street">{{dictionary.street }}</label>
             <div class="col-md-4">
@@ -92,7 +103,7 @@
             </div>
         </div>
 
-        <!-- Text input-->
+        <!-- Text input -->
         <div class="form-group">
             <label class="col-md-4 control-label" for="input_street_num">{{dictionary.street_num  }}</label>
             <div class="col-md-4">
@@ -101,7 +112,7 @@
             </div>
         </div>
 
-        <!-- Text input-->
+        <!-- Text input -->
         <div class="form-group">
             <label class="col-md-4 control-label" for="input_office">{{dictionary.office   }}</label>
             <div class="col-md-4">
@@ -110,7 +121,7 @@
             </div>
         </div>
 
-        <!-- Text input-->
+        <!-- Text input -->
         <div class="form-group">
             <label class="col-md-4 control-label" for="input_email">{{dictionary.email }}</label>
             <div class="col-md-4">
@@ -119,7 +130,7 @@
             </div>
         </div>
 
-        <!-- Text input-->
+        <!-- Text input -->
         <div class="form-group">
             <label class="col-md-4 control-label" for="input_mobile">{{dictionary.mobile  }}</label>
             <div class="col-md-4">
@@ -135,7 +146,7 @@
                     <button id="btn_change_pass" type="button" name="btn_register" class="btn btn-danger btn-block">{{dictionary.change_pass}}</button>
                 </div>
             </div>
-            <!-- Password input-->
+            <!-- Password input -->
             <div class="form-group">
                 <label class="col-md-4 control-label" for="input_password">{{dictionary.password }}</label>
                 <div class="col-md-4">
@@ -145,7 +156,7 @@
                 </div>
             </div>
 
-            <!-- Password input-->
+            <!-- Password input -->
             <div class="form-group">
                 <label class="col-md-4 control-label" for="input_re_password">{{dictionary.repassword }}</label>
                 <div class="col-md-4">
@@ -164,3 +175,10 @@
 
     </fieldset>
 </form>
+   </div>
+    <div id="menu1" class="tab-pane fade">
+      <!-- <h3>Menu 1</h3> -->
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+  </div>
+</div>

@@ -202,19 +202,7 @@ function Registration (reg_type) //ref_type full or simple
            $('#mobile_span').show();
            return false
        }
-
-       // if ($('#input_password').val().match(/^[а-яА-ЯёЁa-zA-Z0-9]{6,}$/i)== null)
-       // {
-       //     $('#password_span').show();
-       //     return false
-       // }
-
-       // if ($('#input_password').val()!=$('#input_re_password').val())
-       // {
-       //     $('#repassword_span').show();
-       //     return false
-       // }
-       return true
+       return true;
 
    };
 
@@ -296,6 +284,19 @@ function Registration (reg_type) //ref_type full or simple
 
        if (that.check()) {
         
+           if($('.changePassword .form-group').eq(1).is(':visible')){
+              if ($('#input_password').val().match(/^[а-яА-ЯёЁa-zA-Z0-9]{6,}$/i)== null)
+              {
+                 $('#password_span').show();
+                 return false;
+              }
+
+              if ($('#input_password').val()!=$('#input_re_password').val())
+              {
+                 $('#repassword_span').show();
+                 return false;
+              }
+           };
 
            var user = {
                first_name: $('#input_firstname1').val(),
@@ -310,7 +311,6 @@ function Registration (reg_type) //ref_type full or simple
                oblast_text: $('#input_oblast :selected').text()
 
            };
-
 
 
            if  (that.registration_type == 'full' )

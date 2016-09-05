@@ -432,6 +432,11 @@ module.exports  = function(){
             var user = req.body;
             // добавляем к присланым данным идентификатор выставки
             user.id = req.user.id;
+            if(user.password == ''){
+                user.password = req.user.password;
+            }else{
+                user.password = global_func.encode_password(user.password);
+            }
             // вызываем метод модели и передаем ему пользователя и callback
             userModel.updateUser(user,function(err,data){
                 console.log(data); // возвращаемые методом update данные это число измененных данных

@@ -60,7 +60,9 @@ a.active_item :hover
 
 //    border-bottom: 3px solid #ddd;
 }
-
+.form-horizontal{
+    padding-top: 25px;
+}
 #content
 {
     padding: 0 15px;
