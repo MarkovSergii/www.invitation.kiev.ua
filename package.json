@@ -32,6 +32,7 @@
     "express": "^4.14.0",
     "express-fileupload": "0.0.5",
     "handlebars": "^4.0.5",
+    "html2canvas": "^0.5.0-beta4",
     "moment": "^2.14.1",
     "mysql": "^2.11.1",
     "node-dev": "^3.1.3",

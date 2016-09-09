@@ -1,6 +1,7 @@
 /**
  * Created by Markoff on 12.07.2016.
  */
+// var html2canvas = require('html2canvas');
 
 function Order_invit (ex_id)
 {
@@ -157,7 +158,17 @@ function Order_invit (ex_id)
     };
     this.show_ticket = function(data)
     {
-        $('#query_block').html(data);
+        
+        html2canvas(data, {
+                allowTaint: true,
+            onrendered: function(canvas) {
+                    $('#query_block').prepend(canvas);
+            var dataURL = canvas.toDataURL();
+                console.log(dataURL);
+            }
+        });
+            // $('#query_block').html(data);
+          
     };
 }
 

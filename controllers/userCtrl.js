@@ -15,6 +15,8 @@ var dictionary = require('../own_modules/translations');
 var settingsModel = require('../models/settingsModel');
 var email = require('../own_modules/email');
 
+
+
 var async = require('async');
 var hbs = require('handlebars');
 var bwipjs = require('bwip-js');
@@ -214,9 +216,10 @@ var get_full_page = function (req, res, page_id, callback) {
                             for (var j=0;j<data.length;j++)
                             {
                                 ex_block = ex_block +'<a class="go_exhib" ex_name = "'+data[j]['name_'+req.cookies.lang]+'"  ex_id = "'+data[j]['id']+'" href="/user/exhibitions/'+data[j]['name_'+req.cookies.lang]+'/'+data[j]['id']+'"> <div class="exhibition_calendar_item">'
-                                +'<div class="exhib_name">'+data[j]['name_'+req.cookies.lang]+'</div>'
+                                +'<div class="exhib_name">'+data[j]['name_'+req.cookies.lang]+'</div><p>1111</p>'
 
                                 + data[j]['content_'+req.cookies.lang]+'</div></a>';
+
                             }
                             ex_block = ex_block+'</div>';
                             callback(null,{lang: languages, user: req.user, menu_items: menu1, content: ex_block,dictionary:dictionary(req.cookies.lang)});
@@ -595,8 +598,18 @@ module.exports  = function(){
                                 };
 
                                 var template = hbs.compile(exhib['content_res_'+req.cookies.lang]);
-                                var html    = template({order:new_order});
-                                res.send(html);
+                                var html = template({order:new_order});
+                                // console.log(html);
+                                var html1 = '<div class="123">'+html+'</div>';
+                                // console.log(html1);
+                                var getCanvas; // global variable
+                                res.send(html1);
+                                // html2canvas.html2canvas(html1).then(function (canvas) {
+                                //         // $('#query_block').append(html1);
+                                // });
+                                // res.send(html1);
+                               
+                                
 
                             }
                         });

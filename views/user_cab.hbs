@@ -4,13 +4,13 @@
 <div class="container">
   <div>
       <ul class=" nav nav-tabs col-md-8">
-        <li class="active"><a data-toggle="tab" href="#home">Данные профиля</a></li>
-        <li><a data-toggle="tab" href="#menu1">Просмотр пригласительных</a></li>
+        <li  ><a data-toggle="tab" href="#home">Данные профиля</a></li>
+        <li class="active"><a data-toggle="tab" href="#menu1">Просмотр пригласительных</a></li>
       </ul>
   </div>
 
   <div class="tab-content col-md-10">
-    <div id="home" class="tab-pane fade in active">
+    <div id="home" class="tab-pane fade ">
      <form class="form-horizontal col-md-9">
     <fieldset>
 
@@ -176,9 +176,25 @@
     </fieldset>
 </form>
    </div>
-    <div id="menu1" class="tab-pane fade">
+    <div id="menu1" class="tab-pane fade in active">
       <!-- <h3>Menu 1</h3> -->
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <div class='col-md-8 container'>
+        
+      <p class='1234qwe'>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <div id='previewImage'>111</div>
+      </div>
     </div>
   </div>
 </div>
+  <!-- <script>
+    var element = $('.1234qwe');
+    var getCanvas; // global variable
+ 
+    // $("#btn-Preview-Image").on('click', function () {
+         html2canvas(element, {
+         onrendered: function (canvas) {
+                $("#previewImage").append(canvas);
+                getCanvas = canvas;
+             }
+         });
+</script> -->
