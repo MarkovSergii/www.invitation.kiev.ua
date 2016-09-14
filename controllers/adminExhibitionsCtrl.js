@@ -6,9 +6,51 @@ var QuestionModel = require('../models/questionModel');
 var AnswerModel = require('../models/answerModel');
 var async = require('async');
 
+var getCountByID = function(arr,id){
+    var cc = 0;
+    arr.forEach(function(item){
+        if (item.exhibition_id == id)
+            cc = item.count
+    });
+    return cc;
+};
+
+
 module.exports = function () {
 
     var task = {
+        getOrders:function(){
+          return new Promise(function(resolve,reject){
+              ExhibitionModel.get_exhibition_list({date_end:{$gt: new Date()}},function(err,exhibitionsList){
+
+                  var arrOrders = [];                  
+                  exhibitionsList.map(function(exhib){                      
+                      var one_ex = " (exhibition_id = "+exhib.id+")";
+                      arrOrders.push(one_ex);
+
+                  });
+
+                  ExhibitionModel.getOrders('('+arrOrders.join(" or ")+') and (DATE(createdAt)=DATE(now()))')
+                      .then(function(one_day){
+                          ExhibitionModel.getOrders(arrOrders.join(" or "))
+                              .then(function(activeOrders){
+
+                                  exhibitionsList.map(function(one){
+                                      one.orders = {};
+                                      one.orders.total = getCountByID(activeOrders,one.id);
+                                      one.orders.day = getCountByID(one_day,one.id);
+                                      return one
+                                  });
+                                  resolve(exhibitionsList);
+                              })
+
+                      });
+
+
+              });
+
+          });
+        },
         get_exhibition_list: function (params,callback) {
 
             ExhibitionModel.get_exhibition_list(params, function (err, data) {

@@ -22,114 +22,29 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <p class="text-center">
-                                    <strong>Статистика за сегодня 03.12.2015</strong>
+                                    <strong>Статистика на {{now}}</strong>
                                 </p>
                             </div>
                         </div>
                         <div class="row">
+                            {{#each orders}}
                             <div class="col-md-6">
                                 <div class="box box-primary">
                                     <div class="box-header with-border">
-                                        <h3 class="box-title ">KyivFashion 2016 (осень)</h3>
-                                        <div class="pull-right" style="float: right">
-                                            <img src="/dist/img/default-50x50.gif">
-                                        </div>
+                                        <h3 class="box-title ">{{this.name_ru}}</h3>
                                     </div>
                                     <!-- /.box-header -->
                                     <ul style="float: left">Количество заказов
-                                        <li><i class="fa fa-user "></i>&nbsp;&nbsp;Обычных - 12</li>
-                                        <li><i class="fa fa-user-plus "></i>&nbsp;&nbsp;Коллективных - 12 ( на 20 чел)
-                                        </li>
-                                        <li><i class="fa fa-users "></i>&nbsp;&nbsp;Итого заказано на 32 чел.</li>
+                                        <li><i class="fa fa-user "></i>&nbsp;&nbsp;За сегодня - {{this.orders.day}}</li>
+                                        <li><i class="fa fa-users "></i>&nbsp;&nbsp;Итого - {{this.orders.total}} </li>
+                                        <button class="btn btn-primary">Детальнее</button>
                                     </ul>
                                 </div>
+
                             </div>
-                            <div class="col-md-6">
-                                <div class="box box-primary">
-                                    <div class="box-header with-border">
-                                        <h3 class="box-title ">KyivFashion 2016 (осень)</h3>
-                                        <div class="pull-right" style="float: right">
-                                            <img src="/dist/img/default-50x50.gif">
-                                        </div>
-                                    </div>
-                                    <!-- /.box-header -->
-                                    <ul>Количество заказов
-                                        <li><i class="fa fa-user "></i>&nbsp;&nbsp;Обычных - 12</li>
-                                        <li><i class="fa fa-user-plus "></i>&nbsp;&nbsp;Коллективных - 12 ( на 20 чел)
-                                        </li>
-                                        <li><i class="fa fa-users "></i>&nbsp;&nbsp;Итого заказано на 32 чел.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="box box-primary">
-                                    <div class="box-header with-border">
-                                        <h3 class="box-title ">KyivFashion 2016 (осень)</h3>
-                                        <div class="pull-right" style="float: right">
-                                            <img src="/dist/img/default-50x50.gif">
-                                        </div>
-                                    </div>
-                                    <!-- /.box-header -->
-                                    <ul>Количество заказов
-                                        <li><i class="fa fa-user "></i>&nbsp;&nbsp;Обычных - 12</li>
-                                        <li><i class="fa fa-user-plus "></i>&nbsp;&nbsp;Коллективных - 12 ( на 20 чел)
-                                        </li>
-                                        <li><i class="fa fa-users "></i>&nbsp;&nbsp;Итого заказано на 32 чел.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="box box-primary">
-                                    <div class="box-header with-border">
-                                        <h3 class="box-title ">KyivFashion 2016 (осень)</h3>
-                                        <div class="pull-right" style="float: right">
-                                            <img src="/dist/img/default-50x50.gif">
-                                        </div>
-                                    </div>
-                                    <!-- /.box-header -->
-                                    <ul>Количество заказов
-                                        <li><i class="fa fa-user "></i>&nbsp;&nbsp;Обычных - 12</li>
-                                        <li><i class="fa fa-user-plus "></i>&nbsp;&nbsp;Коллективных - 12 ( на 20 чел)
-                                        </li>
-                                        <li><i class="fa fa-users "></i>&nbsp;&nbsp;Итого заказано на 32 чел.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="box box-primary">
-                                    <div class="box-header with-border">
-                                        <h3 class="box-title ">KyivFashion 2016 (осень)</h3>
-                                        <div class="pull-right" style="float: right">
-                                            <img src="/dist/img/default-50x50.gif">
-                                        </div>
-                                    </div>
-                                    <!-- /.box-header -->
-                                    <ul>Количество заказов
-                                        <li><i class="fa fa-user "></i>&nbsp;&nbsp;Обычных - 12</li>
-                                        <li><i class="fa fa-user-plus "></i>&nbsp;&nbsp;Коллективных - 12 ( на 20 чел)
-                                        </li>
-                                        <li><i class="fa fa-users "></i>&nbsp;&nbsp;Итого заказано на 32 чел.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="box box-primary">
-                                    <div class="box-header with-border">
-                                        <h3 class="box-title ">KyivFashion 2016 (осень)</h3>
-                                        <div class="pull-right" style="float: right">
-                                            <img src="/dist/img/default-50x50.gif">
-                                        </div>
-                                    </div>
-                                    <!-- /.box-header -->
-                                    <ul>Количество заказов
-                                        <li><i class="fa fa-user "></i>&nbsp;&nbsp;Обычных - 12</li>
-                                        <li><i class="fa fa-user-plus "></i>&nbsp;&nbsp;Коллективных - 12 ( на 20 чел)
-                                        </li>
-                                        <li><i class="fa fa-users "></i>&nbsp;&nbsp;Итого заказано на 32 чел.</li>
-                                    </ul>
-                                </div>
-                            </div>
+                            {{/each}}
                     </div><!-- ./box-body -->
+                    <button class="btn btn-primary">Показать архив выставок</button>
                 </div><!-- /.box -->
             </div>
         </div>

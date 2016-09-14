@@ -14,15 +14,27 @@ module.exports  = function(){
 
     var task = {
         index : function(req,res) {
-            res.render('admin_menu_dashboard',function(err,html){
-                res.render('admin',{content:html,user:req.user,v1:'1'});
-            });
+            adminExhibitionsCtrl.getOrders()
+                .then(function(orders){
+                    res.render('admin_menu_dashboard',{orders:orders},function(err,html){
+                        res.render('admin',{content:html,user:req.user,v1:'1'});
+                    });
+                })
+                .catch(function(error){
+                    console.log(error);
+                });
 
         },
         menu_dashboard:function(req,res){
-           res.render('admin_menu_dashboard',function(err,html){
-                res.render('admin',{content:html,user:req.user,v1:'1'});
-            });
+               adminExhibitionsCtrl.getOrders()
+               .then(function(orders){
+                   res.render('admin_menu_dashboard',{orders:orders,now:(new Date()).toDateString()},function(err,html){
+                       res.render('admin',{content:html,user:req.user,v1:'1'});
+                   });
+               })
+               .catch(function(error){
+                   console.log(error);
+               });
         },
         template_edit:function(req,res){
 

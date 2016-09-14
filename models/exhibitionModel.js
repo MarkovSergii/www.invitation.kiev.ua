@@ -17,6 +17,9 @@ var obj = {
                 callback(err)
             })
     },
+    getOrders:function(params){
+        return models.sequelize.query('select exhibition_id,count(id) as count from users_orders where '+params+" group by exhibition_id",{ type: models.sequelize.QueryTypes.SELECT})           
+    },
     add_exhibition:function(exhib,callback) {
         models.Exhibitions.create(exhib)
             .then(function(new_exhib) {
